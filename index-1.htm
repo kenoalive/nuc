@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中北大学就业创业网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Keywords" content="中北大学就业宝精准就业平台  高校 大学 大学生 就业 就业网 就业信息网 就业指导 就业指导中心   就业中心 创业 创业指导  精准就业 智慧就业"/>
+    <meta name="Description" content="中北大学就业宝精准就业平台  高校 大学 大学生 就业 就业网 就业信息网 就业指导 就业指导中心   就业中心 创业 创业指导  精准就业 智慧就业"/>
+    <script>/*@cc_on window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); @*/</script>    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/slick.css" />
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/rili1.css">
+    <link rel="stylesheet" href="/css/jquery.idcode.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+    <script src=”http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js”></script>
+    <![endif]-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- <script src="../js/polyfill.min.js"></script> -->
+    <script src="/js/jquery-base.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/skrollr.min.js"></script>
+    <script src="js/modernizr.custom.97074.js"></script>
+    <script src="js/jquery.hoverdir.js"></script>
+    <link  href="/css/jquery.idcode.css">
+    <script src="/js/jquery.idcode.js"></script>
+    <script src="/js/jquery-placeholder.js"></script>
+    <script src="/js/calendar.js"></script>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/lee.min.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/wx_get_openid.js"></script>
+    <script type="text/javascript" src="js/jquery.bay-window.js"></script>
+</head>
+<style>
+    [v-cloak] {
+        display: none !important;
+    }
+    .news_top .sp_ {
+        border-top: 2px solid #0c58a7;
+        border-left: 2px solid #0c58a7;
+        border-right: 2px solid #0c58a7;
+        color: #0c58a7;
+        width: 108px;
+        height: 37px;
+        text-align: center;
+        line-height: 33px;
+    }
+    .tab_news span {
+        cursor: pointer;
+    }
+    ._bottom>li>a>div h4 ,._bottom>li>a>div .pp{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .login_p{cursor: pointer;position:relative;}
+    .login_p .ullist{display:none;position:absolute;top:70px;right:0;width:100px;height:60px;background:#FFF;z-index:999999999;}
+    .login_p:hover{}
+    .login_p:hover .ullist{display:inline-block;}
+    .ullist span{width:50%;display:block;height:60px;line-height:30px;cursor:pointer;float:left;text-align:center;}
+</style>
+<style>
+ 
+</style>
+<body>
+    <div class="header"></div>
+    <div style="width:100%;height:91px;"></div>
+<div id="warpindex" v-cloak>
+<template> 
+    <!-- banner 轮播 -->
+    <div style="background:white">
+        <div class="scroll">
+            <ul class="slides">
+                <li class="item" v-for="banner in banners">
+                    <template v-if="banner.link">
+                        <a :href="banner.link">
+                            <img :src="banner.pic_url_name | banner_src" alt="">
+                        </a>
+                    </template>
+                    <template v-else>
+                        <a href="javascript:;">
+                            <img :src="banner.pic_url_name | banner_src" alt="">
+                        </a>
+                    </template>
+                </li>
+            </ul>
+            <div class="scroll-text">
+                <ul class="txtslides">
+                </ul>
+                <div class="point">
+                </div>
+                <!-- <a class="prev" href=""> < </a>
+                <a class="next" href=""> > </a> -->
+            </div>
+        </div>
+
+    </div>
+    <!-- 新闻公告 -->
+    <div class="news">
+        <div class="container">
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-xs-12 col-md-4">
+                    <div class="press">
+                        <h4 class="fenTi">
+                            <span class="news_t">
+                                <img src="image/index/11.gif" alt="">
+                            </span>
+                            新闻公告
+                            <p class="inform" style="float: right;font-size: 14px;margin-top: 6px;">
+                                <a class="fcolor xin" aa="xin">新闻</a><i>|</i>
+                                <a class="tong" aa="tong">通知</a>
+                                <!-- <a class="gong" aa="gong">项目就业</a> -->
+                            </p>
+                            <b class="lanxian_"></b>
+                        </h4>
+                    </div>
+                    <div class="news_bottom">
+                        <div class="gengduo_">
+                            <a :href="'/News/newsList.html?cateid='+news1" class="tong__" style="display:block;">More>></a>
+                                <a :href="'/News/newsList.html?cateid='+news2" class="xin__" style="display:none;">More>></a>
+                                <!-- <a :href="'/News/newsList.html?cateid='+news3" class="gong__" style="display:none;">More>></a> -->
+                        </div>
+                        <ul class="nb_bottom xin_" style="display: block">
+                            <template v-if="newlist2.length == 0">
+                                <p class="col-xs-12" style="margin-top:10px;">暂无数据</p>
+                            </template>
+                            <template v-for="place in newlist2">
+                                <li :title="place.title">
+                                    <template v-if="place.istop == '1'">
+                                        <i class="fcolor">[Top]</i>
+                                    </template>
+                                    <template v-else>
+                                        <i class="fcolor" style="display: none;">[Top]</i>
+                                    </template>
+                                    <template v-if="place.content_url == ''">
+                                        <a :href="'/News/newsXiang.html?cateid='+news2+'&id='+place.id">【新闻】{{place.title}}</a>
+                                    </template>
+                                    <template v-else>
+                                        <a :href="place.content_url" target="_blank" :title="place.title">【新闻】{{place.title}}</a>
+                                    </template>
+                                    <span>{{place.addtime1}}</span>
+                                </li>
+                            </template>
+                        </ul>
+                        <ul class="nb_bottom tong_">
+                            <template v-if="newlist1.length == 0">
+                                <p class="col-xs-12" style="margin-top:10px;">暂无数据</p>
+                            </template>
+                            <template v-for="place in newlist1">
+                                <li :title="place.title">
+                                    <template v-if="place.istop == '1'">
+                                        <i class="fcolor">[Top]</i>
+                                    </template>
+                                    <template v-else>
+                                        <i class="fcolor" style="display: none;">[Top]</i>
+                                    </template>
+                                    <template v-if="place.content_url == ''">
+                                        <a :href="'/News/newsXiang.html?cateid='+news1+'&id='+place.id">【通知】{{place.title}}</a>
+                                    </template>
+                                    <template v-else>
+                                        <a :href="place.content_url" target="_blank" :title="place.title">【通知】{{place.title}}</a>
+                                    </template>
+                                    <span>{{place.addtime1}}</span>
+                                </li>
+                            </template>
+                        </ul>
+                        <!-- <ul class="nb_bottom gong_">
+                            <template v-if="newlist3.length == 0">
+                                <p class="col-xs-12" style="margin-top:10px;">暂无数据</p>
+                            </template>
+                            <template v-for="place in newlist3">
+                                <li :title="place.title">
+                                    <template v-if="place.istop == '1'">
+                                        <i class="fcolor">[Top]</i>
+                                    </template>
+                                    <template v-else>
+                                        <i class="fcolor" style="display: none;">[Top]</i>
+                                    </template>
+                                    <template v-if="place.content_url == ''">
+                                        <a :href="'/News/newsXiang.html?cateid='+news3+'&id='+place.id">【项目就业】{{place.title}}</a>
+                                    </template>
+                                    <template v-else>
+                                        <a :href="place.content_url" target="_blank" :title="place.title">【项目就业】{{place.title}}</a>
+                                    </template>
+                                    <span>{{place.addtime1}}</span>
+                                </li>
+                            </template>
+                        </ul> -->
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="press">
+                            <h4 class="fenTi">
+                                <span class="news_t">
+                                    <img src="image/index/12.gif"  alt="">   
+                                </span>
+                            就业创业
+                            <p class="inform" style="float: right;font-size: 14px;margin-top: 6px;">
+                                <a class="fcolor xiao" aa="xiao">就业</a><i>|</i>
+                                <a class="quan" aa="quan">生涯</a><i>|</i>
+                                <a class="gong" aa="gong">创业</a>
+                            </p>
+                            <b class="lanxian_"></b>
+                        </h4>
+                    </div>
+                    <div class="news_bottom">
+                        <div class="gengduo_">
+                            <!-- 就业 -->
+                            <a :href="'/News/zdylist.html?type=0&cateid='+zdy2" class="xiao__" style="display:block;">More>></a>
+                            <!-- 生涯 -->
+                            <a :href="'/News/zdylist.html?cateid='+zdyzy1" class="quan__" style="display:none;">More>></a>
+                            <!-- 创业 -->
+                            <a :href="'/News/zdylist.html?cateid='+zdycy1" class="gong__" style="display:none;">More>></a>
+                        </div>
+                        <div class="news_bot" style="display: block;">
+                            <ul class="nb_bottom xiao_" style="display: block;">
+                                <template v-if="xuanList.length == 0 & xzlist.length == 0">
+                                    <p class="col-xs-12" style="margin-top:10px;">暂无数据</p>
+                                </template> 
+                                <template v-else>
+                                    <li :title="place.title" v-for="place in xuanList">
+                                        <template v-if="place.istop == '1'">
+                                            <i class="fcolor">[Top]</i>
+                                        </template>
+                                        <template v-else>
+                                            <i class="fcolor" style="display: none;">[Top]</i>
+                                        </template>
+                                        <a :href="'/Zhaopin/zuijin.html?cateid='+place.com_id+'&id='+place.id">
+                                            【招聘宣讲】{{place.title}}
+                                        </a>
+                                        <span>{{place.addtime1}}</span>
+                                    </li>
+                                    <li :title="place.title" v-for="place in xzlist">
+                                        <template v-if="place.istop == '1'">
+                                            <i class="fcolor">[Top]</i>
+                                        </template>
+                                        <template v-else>
+                                            <i class="fcolor" style="display: none;">[Top]</i>
+                                        </template>
+                                        <a :href="'/Zhaopin/xiaozhao.html?type=0&id='+place.id">
+                                            【校招公告】{{place.title}}
+                                        </a>
+                                        <span>{{place.addtime1}}</span>
+                                    </li>
+                                </template>  
+                            </ul>
+                            <ul class="nb_bottom quan_" style="display: none;">
+                                <template v-if="zdylist3.length == 0">
+                                    <p class="col-xs-12" style="margin-top:10px;">暂无数据</p>
+                                </template>
+                                <template v-else>
+                                    <li :title="place.title" v-for="place in zdylist3">
+                                        <template v-if="place.istop == '1'">
+                                            <i class="fcolor">[Top]</i>
+                                        </template>
+                                        <template v-else>
+                                            <i class="fcolor" style="display: none;">[Top]</i>
+                                        </template>
+                                        <template v-if="place.content_url == ''">
+                                            <a :href="'/News/zdydetail.html?cateid='+place.cate_id+'&id='+place.id">
+                                                <template v-if="place.cate_id==zdyzy1">【生涯规划】</template>
+                                                <template v-else-if="place.cate_id==zdyzy2">【讲座培训】</template>
+                                                <template v-else-if="place.cate_id==zdyzy3">【课程建设】</template>
+                                                <template v-else-if="place.cate_id==zdyzy4">【成长故事】</template>
+                                                <template v-else-if="place.cate_id==zdyzy5">【活页资料】</template>
+                                                {{place.title}}
+                                            </a>
+                                        </template>
+                                        <template v-else>
+                                            <a :href="place.content_url" target="_blank" :title="place.title">
+                                                <template v-if="place.cate_id==zdyzy1">【生涯规划】</template>
+                                                <template v-if="place.cate_id==zdyzy2">【讲座培训】</template>
+                                                <template v-if="place.cate_id==zdyzy3">【课程建设】</template>
+                                                <template v-if="place.cate_id==zdyzy4">【成长故事】</template>
+                                                <template v-if="place.cate_id==zdyzy5">【活页资料】</template>
+                                                {{place.title}}
+                                            </a>
+                                        </template>
+                                        <span>{{place.addtime1}}</span>
+                                    </li>
+                                </template>
+                            </ul>
+                            <ul class="nb_bottom gong_" style="display: none;">
+                                <template v-if="zdylist4.length == 0">
+                                    <p class="col-xs-12" style="margin-top:10px;">暂无数据</p>
+                                </template>
+                                    <template v-for="place in zdylist4">
+                                    <li :title="place.title">
+                                        <template v-if="place.istop == '1'">
+                                            <i class="fcolor">[Top]</i>
+                                        </template>
+                                        <template v-else>
+                                            <i class="fcolor" style="display: none;">[Top]</i>
+                                        </template>
+                                        <template v-if="place.content_url == ''">
+                                            <a :href="'/News/zdydetail.html?cateid='+place.cate_id+'&id='+place.id">
+                                                <template v-if="place.cate_id==zdycy1">【创业政策】</template>
+                                                <template v-else-if="place.cate_id==zdycy2">【创业培训】</template>
+                                                <template v-else-if="place.cate_id==zdycy3">【创业活动】</template>
+                                                <template v-else-if="place.cate_id==zdycy4">【中北创客】</template>
+                                                {{place.title}}
+                                            </a>
+                                        </template>
+                                        <template v-else>
+                                            <a :href="place.content_url" target="_blank" :title="place.title">
+                                                <template v-if="place.cate_id==zdycy1">【创业政策】</template>
+                                                <template v-else-if="place.cate_id==zdycy2">【创业培训】</template>
+                                                <template v-else-if="place.cate_id==zdycy3">【创业活动】</template>
+                                                <template v-else-if="place.cate_id==zdycy4">【中北创客】</template>
+                                                {{place.title}}
+                                            </a>
+                                        </template>
+                                        <span>{{place.addtime1}}</span>
+                                    </li>
+                                </template>
+                            </ul>
+                            
+                        </div>
+                
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 rili">
+                    <div class="rili_warp">
+                        <div class=" press">
+                            <h4 class="fenTi">
+                                <span class="news_t">
+                                    <img src="image/index/13.gif" alt="">   
+                                </span>
+                                <b>招聘日历</b>
+                            </h4>
+                        </div>
+                        <a href="/Zhaopin/talk.html" class="right" style="font-size: 10px;position: absolute;right:10px;top:13px;">More>></a>
+                        <div id="calendar" style="margin-top:48px;"></div>
+                        <p class="xjh_today" style="">今日招聘活动共：<span>0</span> 场</p>
+                    </div>
+                    <div class="shuang_warp" style="margin-top:12px;">
+                        <div class=" press">
+                            <h4 class="fenTi">
+                                <span class="news_t">
+                                    <img src="../image/14.gif" style="width:29px;height:29px;" alt="">
+                                </span>双选会
+                                <a href="/Chuangye/sxlb.html" class="right" style="font-size: 10px;margin-top:0px">More>></a>
+                            </h4>
+                            <b class="lanxian_"></b>
+                        </div>
+                        <ul class="shuang">
+                            <template v-if="shuangList.length == 0">
+                                <p class="col-xs-12" >暂无数据</p>
+                            </template>
+                            <template v-else>
+                                <li :title="place.title" v-for="place in shuangList">
+                                    <a :href="'/Chuangye/detail.html?id='+place.id">{{place.title}}</a>
+                                    <span>{{place.addtime1}}</span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 快速通道 -->
+    <div class="quick" style="background:#f0f0f0;margin-top:30px">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div class="news_top">
+                        <span class="left bgcolor">快速通道
+                            <i></i>
+                        </span>
+                        <p class="bgcolor"></p>
+                    </div>
+                    <ul class="s_bottom">
+                        <li>
+                            <a :href="'../News/zdylist.html?cateid='+zdyjy1" class="left">公考信息</a>
+                        </li>
+                        <li>
+                            <a :href="'../News/zdylist.html?cateid='+zdyjy2" class="right">政策法规</a>
+                        </li>
+                        <li>
+                            <a :href="'../News/zdylist.html?cateid='+zdylc1" class="left">流程指南</a>
+                        </li>
+                        <li>
+                            <a :href="'../News/zdylist.html?cateid='+zdysy3" class="right">双选会安排</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="qiyeshow" style="background:#f0f0f0;padding-top:30px;padding-bottom:15px">
+        <div class="container" style="padding-left: 16px;">
+            <div class="comp_tab" style="width: 100%;">
+                <span class="left fcolor bgcolor fcolor1">用人单位推荐
+                    <i style="display: block;"></i>
+                </span>
+
+                <a href="/News/company.html" style="display: block;">More > ></a>
+                <p class="bgcolor" ></p>
+            </div>
+
+            <div class="contain_tab">
+                    <div class="cont_txt btn_lunbo" style="display: block;width: 93.5%;">
+                    <div class="box">
+                        <ul>
+                            <template v-if="qiyeshow1.length == 0">
+                                <p style="width: 100%;text-align: center;">
+                                    <img src="/image/nocom.png" style="width:8%;" alt="">
+                                    <span style="position: absolute;bottom:0;left:46.5%;color:#BD2235">暂无单位推荐</span>
+                                </p>
+                            </template>
+                            <template v-else>
+                                    <li class="da-thumbs qiyeshow_1">
+                                        <a :href="'/News/comdetail.html?comid='+place.com_id"  v-for="place in qiyeshow1">
+                                            <img :src="place.com_id_info.logo_src+'!150auto'" alt="" v-if="place.com_id_info.logo != ''">
+                                            <img src="image/qiye_logo.png" alt="" v-else>
+                                            <div><span>{{place.com_id_info.name}}</span></div>
+                                        </a>
+                                    </li>
+                                    <template v-if="qiyeshow2.length > 0">
+                                        <li class="da-thumbs qiyeshow_2">
+                                            <a :href="'/News/comdetail.html?comid='+place.com_id"  v-for="place in qiyeshow2">
+                                                <img :src="place.com_id_info.logo_src+'!150auto'" alt="" v-if="place.com_id_info.logo != ''">
+                                                <img src="image/qiye_logo.png" alt="" v-else>
+                                                <div><span>{{place.com_id_info.name}}</span></div>
+                                            </a>
+                                        </li>
+                                    </template>
+                                    <template v-if="qiyeshow3.length > 0">
+                                        <li class="da-thumbs qiyeshow_3">
+                                            <a :href="'/News/comdetail.html?comid='+place.com_id"  v-for="place in qiyeshow3">
+                                                <img :src="place.com_id_info.logo_src+'!150auto'" alt="" v-if="place.com_id_info.logo != ''">
+                                                <img src="image/qiye_logo.png" alt="" v-else>
+                                                <div><span>{{place.com_id_info.name}}</span></div>
+                                            </a>
+                                        </li>
+                                    </template>
+                            </template>
+                        </ul>
+                    </div>
+                    <button class="btn btn1"> < </button>
+                    <button class="btn btn2"> > </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 飘窗元素 -->
+    <template v-if="piaoc !=null">
+        <template v-if="piaoc.is_open_float_win == '1'">
+            <div class="automv" :style="'display: block;height:'+piaoc.open_float_height+';width:'+piaoc.open_float_width"><a :href="piaoc.open_float_url">
+                <span>×</span>
+                <template v-if="piaoc.open_float_image">
+                    <img :src="piaoc.open_float_image_name+'!220auto'" alt="">
+                </template>
+                <template v-else>
+                    <img src="../image/piaochuang.jpg" alt="">
+                </template>
+            </a></div>
+        </template>
+        <template v-else>
+            <div class="automv" style="display: none;"><a :href="piaoc.open_float_url">
+                <span>×</span>
+                <template v-if="piaoc.open_float_image">
+                    <img :src="piaoc.open_float_image_name+'!220auto'" alt="">
+                </template>
+                <template v-else>
+                    <img src="../image/piaochuang.jpg" alt="">
+                </template>
+            </a></div>
+        </template>
+    </template>
+    <!-- 右侧固定栏 -->
+    <!-- <div class="right_fixed">
+        <div class="wei">
+            <img src="/image/weihui.png" alt="">
+            <div class="big">
+                <i></i>
+            </div>
+        </div>
+        <div class="qq">
+            <img src="/image/qqhui.png" alt="">
+            <p>
+                <i></i>
+                <a href="#" id="foo">2945109049</a>
+                <button class="btn" data-clipboard-action="copy" data-clipboard-target="#foo">复制</button>
+            </p>
+        </div>
+        <div class="xin">
+            <img src="/image/xinhui.png" alt="">
+            <p>
+                <i></i>
+                <a href="#" id="foo2">service@jiuyebao2015.com</a>
+                <button class="btn" data-clipboard-action="copy" data-clipboard-target="#foo2">复制</button>
+            </p>
+        </div>
+    </div> -->
+</template>
+</div>
+    <div class="footer"></div>
+    <div class="wxb"></div>
+</body>
+</html>
+<script>
+    $(".header").load("../Public/header.html");
+    $(".footer").load("../Public/footer.html");
+
+    var school_id = sessionStorage.getItem("school_id");
+    var news1 = sessionStorage.getItem("news1");//通知 全局变量
+    var news2 = sessionStorage.getItem("news2");//新闻 全局变量
+    var news3 = sessionStorage.getItem("news3");//项目就业 全局变量
+
+
+    var news4 = sessionStorage.getItem("news4");//校招公告 全局变量
+    var news5 = sessionStorage.getItem("news5");//需求 全局变量
+
+    var zdy1=sessionStorage.getItem("zdy1");//双选会 全局变量
+    var zdy2=sessionStorage.getItem("zdy2");//就业在线 全局变量
+    var zdyjy1=sessionStorage.getItem("zdyjy1");//公考信息 全局变量
+    var zdyjy2=sessionStorage.getItem("zdyjy2");//政策法规 全局变量
+    var zdyjy3=sessionStorage.getItem("zdyjy3");//相关流程 全局变量
+    var zdy3=sessionStorage.getItem("zdy3");//职业发展 全局变量
+    var zdy4=sessionStorage.getItem('zdy4');//创业在线 全局变量
+    var zdy5=sessionStorage.getItem('zdy5');//优秀毕业生 全局变量
+    var zdy6=sessionStorage.getItem('zdy6');//下载专区 全局变量
+    var zdy7=sessionStorage.getItem('zdy7');//毕业生情况 全局变量
+    var zdy8=sessionStorage.getItem('zdy8');//招聘流程 全局变量
+    var zdy9=sessionStorage.getItem('zdy9');//联系我们 全局变量
+    var zdy10=sessionStorage.getItem('zdy10');//下载区域 全局变量
+    var zdy12=sessionStorage.getItem('zdy12');//创业竞赛 全局变量
+    var zdy13=sessionStorage.getItem('zdy13');//创客训练营 全局变量
+    var zdy14=sessionStorage.getItem('zdy14');//政策法规 全局变量
+
+    var zdyzy1=sessionStorage.getItem('zdyzy1');//生涯规划 全局变量
+    var zdyzy2 = sessionStorage.getItem('zdyzy2');//讲座培训
+    var zdyzy3 = sessionStorage.getItem('zdyzy3');//课程建设
+    var zdyzy4 = sessionStorage.getItem('zdyzy4');//成长故事
+    var zdyzy5 = sessionStorage.getItem('zdyzy5');//活页资料
+
+    var zdyjy1 = sessionStorage.getItem('zdyjy1');//公考信息
+    var zdyjy2 = sessionStorage.getItem('zdyjy2');//政策法规
+    var zdyjy3 = sessionStorage.getItem('zdyjy3');//相关流程
+
+    var zdycy1 = sessionStorage.getItem('zdycy1');//创业政策
+    var zdycy2 = sessionStorage.getItem('zdycy2');//创业培训
+    var zdycy3 = sessionStorage.getItem('zdycy3');//创业活动
+    var zdycy4 = sessionStorage.getItem('zdycy4');//中北创客
+    var zdylc1 = sessionStorage.getItem('zdylc1');//流程指南
+    var zdysy3 = sessionStorage.getItem('zdysy3');//双选会安排
+
+    var vm = new Vue({
+        el:"#warpindex",
+        data:{
+            banners:[],         //轮播图
+            newlist1:[],        //通知
+            newlist2:[],        //新闻
+            newlist3:[],//支部生活
+            newlist5:[],        //需求
+            joblist1:[],        //全职
+            joblist2:[],        //实习
+            xzlist:[],          //校招
+            news1: news1,
+			news2: news2,
+            news3: news3,
+            news4: news4,
+            news5: news5,
+            zdyzy1:zdyzy1,//生涯规划
+            zdyzy2:zdyzy2,//讲座培训
+            zdyzy3:zdyzy3,//课程建设
+            zdyzy4:zdyzy4,//成长故事
+            zdyzy5:zdyzy5,//活页资料
+            zdylist2:[],//就业在线列表
+            zdylist3:[],//职业发展列表
+            zdylist4:[],//创业在线列表
+            zdyjy1:zdyjy1,//公考信息
+            zdyjy2:zdyjy2,//政策法规
+            zdyjy3:zdyjy3,//相关流程
+            xuanList:[],//宣讲会列表
+            shuangList:[],//双选列表
+            piaoc:{},          //飘窗
+            qiyeshow1: [],
+            qiyeshow2: [],
+            qiyeshow3: [],
+
+
+        },
+        mounted:function(){
+            
+        },
+        updated:function(){
+            
+            var today_list = $(".today .text p").size();
+            $(".xjh_today").find("span").html(today_list);
+            
+            $(".automv span").click(function(){
+                $(this).parent("a").removeAttr("href");
+                $(this).parents(".automv").hide();
+            })
+
+            var clipboard = new Clipboard('.btn');
+
+        },
+        filters: {
+			banner_src: function (obj) {
+				if(obj == null || obj=="" || obj == undefined || obj == "0"){
+					return "image/banner/banner1.png";
+				}
+				return obj+'!auto';
+            },
+            logo_src:function (obj) {
+                if(obj == null || obj == "" || obj == undefined || obj == "0"){
+                    return "../image/pic/company.png";
+                }
+                return obj + "!y";
+            },
+            feng_src:function (obj) {
+                if(obj == null || obj == "" || obj == undefined || obj == "0"){
+                    return "../image/png/news.jpg";
+                }
+                return obj + "!y";
+            },
+            is_jigou: function (obj) {
+				if(obj == null || obj=="" || obj == undefined || obj == "0"){
+					return "用人单位发布";
+				}
+				return obj;
+            },
+            
+        },
+    })
+    //快速通道
+    $(".quick .s_bottom li>a").hover(function(){
+        console.log(1)
+        $(this).stop().animate({"background": "#BD2235","color":"#fff","border-color":"#BD2235"},400);
+    },function(){
+        $(this).stop().animate({"background":"#fff","color":"#BD2235","border-color":"#fff"},400)
+    })
+    // ------------------------------------飘窗
+    $('.automv').autoMove({angle:-Math.PI/4, speed:100});
+
+    // banner轮播
+http("POST", "/Schoolad/getlist", { "school_id": school_id, "cate_id": 1 }, function(e) {
+    vm.banners = e.data.list;
+    vm.$nextTick(function() {
+        // ---------------------------------------轮播图
+        $('.slides').slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: 1000,
+            centerMode: true,
+            centerPadding: '0',
+            variableWidth: true,
+            asNavFor: '.txtslides',
+            prevArrow: ".scroll-text .prev",
+            nextArrow: ".scroll-text .next",
+            dots: true,
+            appendDots: ".scroll-text .point",
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    variableWidth: false
+                }
+            }]
+        });
+        $('.txtslides').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slides'
+        });
+    })
+})
+
+    // 通知新闻公告
+    http("POST", "/Article/getlist", {"school_id":school_id, "cate_id":news1, "size":10, "page":1}, function (e) {
+        console.log(e)
+        vm.newlist1 = []
+        for(var i=0;i<e.data.list.length;i++){
+            e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+            vm.newlist1.push(e.data.list[i]);
+        }
+    })
+    http("POST", "/Article/getlist", {"school_id":school_id, "cate_id":news2, "size":10, "page":1}, function (e) {
+        // console.log(e)
+        vm.newlist2 = []
+        for(var i=0;i<e.data.list.length;i++){
+            e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+            vm.newlist2.push(e.data.list[i]);
+        }
+    })
+    http("POST", "/Article/getlist", {"school_id":school_id, "cate_id":news3, "size":10, "page":1}, function (e) {
+        // console.log(e)
+        vm.newlist3 = []
+        for(var i=0;i<e.data.list.length;i++){
+            e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+            vm.newlist3.push(e.data.list[i]);
+        }
+    })
+    http("POST", "/Article/getlist", {"school_id":school_id, "cate_id":news5, "size":10, "page":1}, function (e) {
+        // console.log(e)
+        vm.newlist5 = []
+        for(var i=0;i<e.data.list.length;i++){
+            e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+            vm.newlist5.push(e.data.list[i]);
+        }
+    })
+
+    //就业在线
+    http("POST", "/Article/getlist", {"school_id":school_id, "cate_id":zdy2, "size":10, "page":1}, function (e) {
+        vm.zdylist2 = []
+        for(var i=0;i<e.data.list.length;i++){
+            e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+            vm.zdylist2.push(e.data.list[i]);
+        }
+    })
+    //职业发展
+    http("POST", "/Article/getlist", {"school_id":school_id, "cate_id":zdy3, "size":10, "page":1}, function (e) {
+        console.log(e,333)
+        vm.zdylist3 = []
+        for(var i=0;i<e.data.list.length;i++){
+            e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+            vm.zdylist3.push(e.data.list[i]);
+        }
+    })
+    //创业在线
+    http("POST", "/Article/getlist", {"school_id":school_id, "cate_id":zdy4, "size":10, "page":1}, function (e) {
+        // console.log(e)
+        vm.zdylist4 = []
+        for(var i=0;i<e.data.list.length;i++){
+            e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+            vm.zdylist4.push(e.data.list[i]);
+        }
+    })
+
+    // 职位列表
+    // http("POST", "/job/getlist", {"school_id":school_id, "jobtype":1, "isunion":2, "page":1, "size":6}, function (e) {
+    //     // console.log(e)
+    //     vm.joblist1 = []
+    //     for(var i=0;i<e.data.list.length;i++){
+    //         e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+    //         vm.joblist1.push(e.data.list[i]);
+    //     }
+    // })
+    // http("POST", "/job/getlist", {"school_id":school_id, "jobtype":2, "isunion":2, "page":1, "size":6}, function (e) {
+    //     // console.log(e)
+    //     vm.joblist2 = []
+    //     for(var i=0;i<e.data.list.length;i++){
+    //         e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+    //         vm.joblist2.push(e.data.list[i]);
+    //     }
+    // })
+    //招聘宣讲列表
+    http('POST', '/preach/getlist', {"isunion":2,"school_id":school_id,"page":1,"size":5}, function (e) {
+        console.log(e,11)
+        var xuanList=[];
+        for(var i=0;i<e.data.list.length;i++){
+            e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+            vm.xuanList.push(e.data.list[i]);
+        }
+    })
+    //获取校招列表
+    http("POST", "/enrollment/getlist", {"school_id":school_id,"cate_id":news4,"type":0, "page":1, "size":5}, function (e) {
+        console.log(e,22)
+        vm.xzlist = []
+        for(var i=0;i<e.data.list.length;i++){
+            e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+            vm.xzlist.push(e.data.list[i]);
+        }
+    })
+    //双选会列表
+    http('POST', '/jobfair/getlist', { "school_id": school_id, "page": 1, "size": 2, "status": 0 }, function(e) {
+        console.log(e, 444444)
+        vm.shuangList = [];
+        for (var i = 0; i < e.data.list.length; i++) {
+            e.data.list[i]['addtime1'] = timestampToTime(e.data.list[i].addtime,1);
+            vm.shuangList.push(e.data.list[i]);
+        }
+    });
+// 用人单位推荐
+http('POST', '/comshow/getlist', {
+        "type": 0,
+        "school_id": school_id,
+        "page": 1,
+        "size": 15
+    }, function (e) {
+        // console.log(e);
+        for (var i = 0; i < e.data.list.length; i++) {
+            if (i <= 4) {
+                vm.qiyeshow1.push(e.data.list[i]);
+            } else if (i >= 5 && i < 10) {
+                vm.qiyeshow2.push(e.data.list[i]);
+            } else if (i >= 10 && i < 15) {
+                vm.qiyeshow3.push(e.data.list[i]);
+            }
+        }
+
+        vm.$nextTick(function () {
+            // console.log($('.da-thumbs a').length);
+            var str =
+                '<a title="暂无数据"><img src="image/qiye_logo.png" alt=""><div><span>暂无用人单位</span></div></a>';
+            if (vm.qiyeshow1.length < 5 && vm.qiyeshow1.length > 0) {
+                for (var i = 0; i < 5 - vm.qiyeshow1.length; i++) {
+                    $(".qiyeshow_1").append(str);
+                }
+            }
+            if (vm.qiyeshow2.length < 5 && vm.qiyeshow2.length > 0) {
+                for (var i = 0; i < 5 - vm.qiyeshow2.length; i++) {
+                    $(".qiyeshow_2").append(str);
+                }
+            }
+            if (vm.qiyeshow3.length < 5 && vm.qiyeshow3.length > 0) {
+                for (var i = 0; i < 5 - vm.qiyeshow3.length; i++) {
+                    $(".qiyeshow_3").append(str);
+                }
+            }
+
+            function lunbo() {
+                var w = $(".box").width();
+                var num = $(".box>ul>li").size();
+                $(".box>ul").css("width", w * (num + 1) + "px");
+                $(".box>ul>li").css("width", w + "px");
+            }
+            lunbo();
+            $(".box").lunbo("bgcolor", false, true);
+            $('.da-thumbs a').each(function () {
+                $(this).hoverdir();
+            }); //遮罩层
+            // console.log($('.da-thumbs a').length);
+        })
+
+    });
+    // 悬浮窗
+    http("POST", "/School/detail", {"id":school_id}, function (e) {
+        // console.log(e)
+        vm.piaoc = e.data;
+        // console.log(vm.piaoc == )
+        // if(vm.piaoc.is_open_float_win == 1){
+        //     $(".automv").css("display","block");
+        // }else{
+        //     $(".automv").css("display","none");
+        // }
+    })
+    
+ //日历插件
+ var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    month = (month < 10 ? "0" + month : month);
+    day = (day < 10 ? "0" + day : day);
+    var d=year+"-"+month+"-"+day;
+    calUtil.setMonthAndDay();
+    calUtil.init(CreatZczphArea(year + "-" + month));
+    function CreatZczphArea(Month) {
+        // var date2= new Date(Date.parse(Month.replace(/-/g,  "/")));      //转换成Data(); 
+        // var year2 = date2.getFullYear();
+        // var month2 = date2.getMonth()+1;
+        // var zczph = new Array();
+        // var signList = new Array();
+        var date2= Month.split("-");      //转换成Data(); 
+        var year2 = date2[0];
+        var month2 = date2[1];
+        var zczph = new Array();
+        var signList = new Array();
+        // console.log(Month,date2,year2,month2);
+        http3('POST', '/preach/dategetlist', {"school_id":school_id,"year":year2,"month":month2},function (e) {
+            if(e.code == 0){
+            //    console.log(e)
+                var arr=[];
+                var ddd="0";
+                for (var i = 0; i < e.data.length; i++) {
+                    for(var j=0;j<e.data[i].list.length;j++){
+                        var obj={};
+                        obj["date"]=e.data[i].key;
+                        obj["value"]=e.data[i].list[j].title;
+                        obj["id"]=e.data[i].list[j].id;
+                        arr.push(obj);
+                    }
+                    if(e.data[i].key==d){
+                        ddd=e.data[i].list.length;
+                    }
+                }
+                zczph = arr;
+                $(".chang").html(ddd);
+            }
+        });
+        if (zczph.length > 0) {
+            for (var i = 0; i < zczph.length; i++) {
+                var data = {
+                    signmon: zczph[i].date.substring(0, 7),
+                    signDay: new Date(zczph[i].date.replace(/-/g, "/")).getDate(),
+                    signBt: zczph[i].value,
+                    zczphid: zczph[i].id
+                }
+                if (data.signmon == Month) {
+                    signList.push(data);
+                }
+            }
+        }
+        return signList;    
+    }
+    $(".nowTime").html(year+'-'+month+'-'+day);
+    //日历插件结束
+    // 跳转专场招聘会详情方法
+    function TzZczphXq(zczphid) {
+        location.href = "/Zhaopin/zuijin.html?id=" + zczphid ;
+    }
+    // 日历跳转列表
+    function zprl_djrq_index(hold_date){
+        location.href = "/Zhaopin/talk.html?hold_date="+hold_date;
+    }
+
+
+document.documentElement.style.fontSize=document.documentElement.clientWidth/750*100+'px';
+$(".news").hover(function () {
+    $(this).stop().animate({bottom:"80px"},"slow");
+    $(".banner img").addClass("blur")
+},function(){
+    $(this).stop().animate({bottom:"-235px"},"slow");
+    $(".banner img").removeClass("blur")
+})
+
+// 登录
+$(".login").click(function(){
+    $(".register").show();
+})
+$(".close").click(function(){
+    $(".register").hide();
+})
+
+//滑动门-新闻
+function news(n) {
+    for(var i = 1; i <= 3; i++) {
+        var news_tab = $('#news_tab_' + i);
+        var news_content = $('#news_content_' + i);
+
+        if(i == n) {
+            news_tab.css('color', '#0088f1');
+            news_content.show();
+        } else {
+            news_tab.css('color', '#000');
+            news_content.hide();
+        }
+    }
+}
+//滑动门-招聘
+function recruit(n) {
+    for(var i = 1; i <= 3; i++) {
+        var recruit_tab = $('#recruit_tab_' + i);
+        var recruit_content = $('#recruit_content_' + i);
+
+        if(i == n) {
+            recruit_tab.css('color', '#0088f1');
+            recruit_content.show();
+        } else {
+            recruit_tab.css('color', '#000');
+            recruit_content.hide();
+        }
+    }
+}
+$(function() {
+    news(1);
+    recruit(2);
+});
+
+// $(".slideBox").slide({mainCell:".bd ul",autoPlay:true});
+
+// 新闻公告  就业信息
+$(".inform a").click(function(){
+    var index = $(this).index();
+    $(this).addClass("active").siblings().removeClass("active");
+    $(this).parents(".press").next(".journalism").find(".affiche").eq(index).show().siblings().hide();
+})
+
+$(document).ready(function(){
+        var wxpage = sessionStorage.getItem("wx");
+        var phone = sessionStorage.getItem("phone");
+        http("POST", "/School/detail", {"id":school_id}, function (e) {
+            if(wxpage=='false' && phone=='true'&& e.data.wx_domain){
+                $('.wxb').html('<a href=http://'+e.data.wx_domain+'/index.html style="width:32%;height:70px;line-height: 70px;font-size: 28px;border-radius: 5px;display:block;margin:80px auto;text-align: center;border:1px solid #3A71FB;color:#3A71FB;">查看微信版</a>')
+            }
+        })
+    })
+
+</script>

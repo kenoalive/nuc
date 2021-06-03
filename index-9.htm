@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>中国大学生服务外包——创新创业大赛</title>
+    <meta name="keywords" content="中国大学生，服务外包，创新，创业，大赛">
+    <meta name="description" content="这是一个中国大学生拓展个人能力的舞台">
+    <base href="">
+    <link rel="stylesheet" href="/static/css/site.css">
+    <script src="/static/js/jquery-1.10.2.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/static/js/html5shiv.js"></script>
+    <script src="/static/js/respond.js"></script>
+    <![endif]-->
+    <style>
+        .contestarea{
+            position:absolute;top:210px;left:500px;opacity:80%;border-radius:16px;padding:12px;color:#fff;background:#0d6aad;width:730px;line-height: 32px;font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+<div class="header">
+    <div class="logo">
+        <img src="/static/images/logo.jpg"/>
+    </div>
+    <div class="navi">
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/public/index">大赛公告</a></li>
+            <li><a href="/organization/index">组织机构</a></li>
+            <li><a href="/news/index">大赛新闻</a></li>
+            <li>
+                <a href="/activity/index">大赛花絮</a>
+            </li>
+            <li><a href="/video/index">大赛视频</a></li>
+            <li><a href="/about/index">关于大赛</a></li>
+        </ul>
+    </div>
+</div>    <div class="banner-box">
+        <div class="banner-container">
+            <div class="login">
+                <h3>用户登录</h3>
+                <form action="/team/homeLogin" method="post">
+                    <div class="form-row">
+                        <input type="text" placeholder="请输入手机号码" name="userId" id="userId" value=""
+                               class="field">
+                    </div>
+                    <div class="form-row">
+                        <input type="password" placeholder="请输入密码" name="userPass" id="userPass" class="field">
+                    </div>
+                    <div class="form-row opt-line clearfix">
+                        <div class="opt-left"><input type="checkbox" name="rem" value="rem" id="rem"
+                                                     ><label for="rem">记住用户名</label>
+                        </div>
+                        <div class="opt-right"><a href="/team/forgetPass" target="_blank">忘记密码？</a></div>
+                    </div>
+                    <div class="form-row">
+                        <input type="submit" value="登录" class="login-btn">
+                    </div>
+                    <div class="form-row opt-line clearfix">
+                        <div class="opt-left"><a href="/university/login">高校登录</a> /
+                            <a href="/university/register">高校注册</a></div>
+                        <div class="opt-right"><a href="/team/register" target="_blank">没有团队账号，前往注册？</a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <!--新闻资讯与大赛公告-->
+
+        <div class="public">
+            <div class="item-title clearfix">
+                <ul class="item"  style="width:140px;">
+                    <li class="current"><a href="#" class="current">大赛公告</a></li>
+                </ul>
+            </div>
+            <div class="top-news">
+                <div class="pic-list">
+                    <div class="shutter">
+                        <div class="shutter-img">
+                            <a href="/news/show/226"
+                               data-shutter-title="第九届服创大赛获奖团队奖金发放信息公示"><img src="/attached/image/20180826/20180826171419_136.jpg" alt="第九届服创大赛获奖团队奖金发放信息公示"></a>
+                            <a href="/news/show/109"
+                               data-shutter-title="第八届中国大学生服务外包创新创业大赛决赛顺利落幕！"><img src="/uploads/170917/1-1F91H05J0O9.jpg" alt="第八届中国大学生服务外包创新创业大赛决赛顺利落幕！"></a>
+                            <a href="/news/show/106"
+                               data-shutter-title="第七届中国大学生服务外包创新创业大赛近日在锡圆满落幕"><img src="/uploads/161124/1-16112410313SL.JPG" alt="第七届中国大学生服务外包创新创业大赛近日在锡圆满落幕"></a>
+
+                        </div>
+                        <ul class="shutter-btn bt2">
+                            <li class="prev"></li>
+                            <li class="next"></li>
+                        </ul>
+                        <div class="shutter-desc">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-list">
+                    <ul>
+                            <li><h6><span class="time">2021-05-26</span><a
+                                    href="/news/show/333"
+                                    target="_blank">第十二届中国大学生服务外包创新创业大赛中部、西部、
+                                ...</a></h6>
+                                <div>
+                                       <a href="/news/show/333"
+                                          target="_blank">第十二届中国大学生服务外包创新创业大赛中部区域赛决赛手册第十二届中国大学生服务外包创新创业大赛西部区域赛决赛参赛手册第十二届中国大学生服务外...</a>
+                                </div>
+                            </li>
+                            <li><h6><span class="time">2021-05-24</span><a
+                                    href="/news/show/332"
+                                    target="_blank">中国大学生服务外包创新创业大赛西部区域赛决答辩形式
+                                ...</a></h6>
+                                <div>
+                                       <a href="/news/show/332"
+                                          target="_blank">各西部区域赛决赛团队：由于近期疫情防控情况有所变化，西部赛区涉及到风险地区，根据国家疫情防控要求，经大赛组委会商议，原定5月29日-30日在...</a>
+                                </div>
+                            </li>
+                            <li><h6><span class="time">2021-05-21</span><a
+                                    href="/news/show/331"
+                                    target="_blank">第十二届服创大赛中部、西部、东部区域赛决赛报到须知</a></h6>
+                                <div>
+                                       <a href="/news/show/331"
+                                          target="_blank">各参赛团队：第十二届服创大赛中部区域赛决赛将于5月28日-29日举行；西部区域赛决赛将于5月29日-30日举行；东部区域赛决赛将于6月2日-...</a>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+        <!--大赛新闻-->
+        <div class="public">
+            <div class="item-title clearfix">
+                <ul class="item" style="width:140px;">
+                    <li class="current"><a href="#" class="current">大赛新闻</a></li>
+                </ul>
+            </div>
+            <div class="top-news">
+                <div class="line_news">
+                    <ul>
+                            <li><h6><span class="time">2021-06-01</span><a
+                                            href="/news/show/334"
+                                            target="_blank">中国大学生服务外包创新创业大赛中部区域赛在长举行</a></h6>
+                                <div>
+                                        <a href="/news/show/334"
+                                           target="_blank">第十二届中国大学生服务外包创新创业大赛中部区域赛决赛于5月29日在长沙中南大学落下帷幕。此前，中部区域赛初赛共有776支团队参加，131支团...</a>
+                                </div>
+                            </li>
+                            <li><h6><span class="time">2020-08-29</span><a
+                                            href="/news/show/318"
+                                            target="_blank">第十一届中国大学生服创大赛决赛在无锡举行</a></h6>
+                                <div>
+                                        <a href="/news/show/318"
+                                           target="_blank">8月27-28日，第十一届中国大学生服务外包创新创业大赛(下简称“服创大赛”)决赛在无锡江南大学举行。考虑到疫情防控的需要，大赛决赛首次采用...</a>
+                                </div>
+                            </li>
+                            <li><h6><span class="time">2020-03-16</span><a
+                                            href="/news/show/288"
+                                            target="_blank">线上云招聘，携手共战疫，服创大赛命题企业招聘信息发布
+                                            ...</a></h6>
+                                <div>
+                                        <a href="/news/show/288"
+                                           target="_blank">趁青春展虹图虹软2020校园招聘全面启动在这里，我们提供舒适的工作环境，创造融洽开放的工作氛围；在这里，我们倡导积极主动的工作态度，科学合理...</a>
+                                </div>
+                            </li>
+                            <li><h6><span class="time">2020-03-13</span><a
+                                            href="/news/show/287"
+                                            target="_blank">中国大学生服务外包创新创业大赛为服务外包产业发展“加
+                                            ...</a></h6>
+                                <div>
+                                        <a href="/news/show/287"
+                                           target="_blank">稳就业是党中央和国务院的重要部署，也是最大的民生。作为知识密集型产业，服务外包产业在促进就业方面发挥着越来越重要的作用。商务部等8部门此前印...</a>
+                                </div>
+                            </li>
+                            <li><h6><span class="time">2019-12-27</span><a
+                                            href="/news/show/282"
+                                            target="_blank">中国大学生服务外包创新创业大赛指导教师培训会在北京举
+                                            ...</a></h6>
+                                <div>
+                                        <a href="/news/show/282"
+                                           target="_blank">近期，为增强指导教师对中国大学生服务外包创新创业大赛（简称大赛）的认知和了解，提高参赛作品质量，大赛组委会在北京举办了中国大学生服务外包创新...</a>
+                                </div>
+                            </li>
+                            <li><h6><span class="time">2019-11-05</span><a
+                                            href="/news/show/277"
+                                            target="_blank">服创大赛高博会之行成果丰硕</a></h6>
+                                <div>
+                                        <a href="/news/show/277"
+                                           target="_blank">11月1-3日，中国大学生服务外包创新创业大赛组委会赴南京参展第54届高等教育博览会，通过展板、视频、宣传册、讲解等多种方式，展示大赛十年在...</a>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--视频花絮-->
+        <div class="public">
+            <div class="item-title">
+                <ul class="item" id="exciting">
+                    <li><a href="#" class="current">大赛视频</a></li>
+                    <li><a href="#">大赛花絮</a></li>
+                </ul>
+            </div>
+            <div class="top-video vp">
+                <div class="p-list">
+                    <div id="mediaplayer"></div>
+                    <div class="video-name">访谈VCR</div>
+                </div>
+                <div class="v-list">
+                    <ul>
+                            <li><a href="/video/play/7e4c4cfa-1671-4826-9342-1304bfe77568">
+                                <div><img src="/attached/image/20181128/20181128150249_653.png" alt=""></div>
+                                <div>中国大学生服务外包创新创业大赛</div>
+                            </a>
+                            </li>
+                            <li><a href="/video/play/eb1897f7-f751-4c89-8901-c5438c4d89c1">
+                                <div><img src="/attached/image/20181010/20181010084950_94.png" alt=""></div>
+                                <div>中国大学生服务外包创新创业大赛赛歌</div>
+                            </a>
+                            </li>
+
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="album vp" style="display:none;">
+                <ul>
+                        <li><a href="/activity/show/21" target="_blank">
+                            <div><img src="/attached/image/20210219/20210219113633_828.jpg" alt="第十一届大赛决赛颁奖5"></div>
+                            <div>第十一届大赛决赛颁奖5</div>
+                        </a></li>
+                        <li><a href="/activity/show/20" target="_blank">
+                            <div><img src="/attached/image/20210219/20210219113343_164.jpg" alt="第十一届大赛决赛颁奖4"></div>
+                            <div>第十一届大赛决赛颁奖4</div>
+                        </a></li>
+                        <li><a href="/activity/show/19" target="_blank">
+                            <div><img src="/attached/image/20210219/20210219113056_903.jpg" alt="第十一届大赛决赛颁奖3"></div>
+                            <div>第十一届大赛决赛颁奖3</div>
+                        </a></li>
+                        <li><a href="/activity/show/18" target="_blank">
+                            <div><img src="/attached/image/20210219/20210219113017_63.jpg" alt="第十一届大赛决赛颁奖2"></div>
+                            <div>第十一届大赛决赛颁奖2</div>
+                        </a></li>
+                        <li><a href="/activity/show/17" target="_blank">
+                            <div><img src="/attached/image/20210219/20210219111909_54.jpg" alt="第十一届大赛决赛颁奖1"></div>
+                            <div>第十一届大赛决赛颁奖1</div>
+                        </a></li>
+                        <li><a href="/activity/show/16" target="_blank">
+                            <div><img src="/attached/image/20210219/20210219111648_449.jpg" alt="第十一届大赛创新创业线上主题分享"></div>
+                            <div>第十一届大赛创新创业线上主题分享</div>
+                        </a></li>
+                        <li><a href="/activity/show/15" target="_blank">
+                            <div><img src="/attached/image/20210219/20210219111219_299.jpg" alt="第十一届大赛决赛线上答辩"></div>
+                            <div>第十一届大赛决赛线上答辩</div>
+                        </a></li>
+                        <li><a href="/activity/show/14" target="_blank">
+                            <div><img src="/attached/image/20210219/20210219110247_587.jpg" alt="第十一届大赛决赛颁奖典礼"></div>
+                            <div>第十一届大赛决赛颁奖典礼</div>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--赛题视频-->
+        <div class="public">
+            <div class="item-title" >
+                <ul class="item" style="width:140px;">
+                    <li><a href="#" class="current">本届A类赛题</a></li>
+                </ul>
+            </div>
+            <div class="album vp2">
+                <ul>
+                        <li><a href="/topic/show/6d4844e7-4115-46fd-8d1a-cc4e9db2e61c" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131524_28.png" alt="【A01】小微企业跨组织人才管理系统【今目标】"></div>
+                                <div class="title">【A01】小微企业跨组织人才管理系统【今目标】</div>
+                            </a></li>
+                        <li><a href="/topic/show/8df1af8d-696c-4e4b-aca8-fd136662503b" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131611_500.png" alt="【A02】基于非特定类别的图像前景主体分割算法【万兴科技】"></div>
+                                <div class="title">【A02】基于非特定类别的图像前景主体分割算法【万兴科技】</div>
+                            </a></li>
+                        <li><a href="/topic/show/55ae0550-2b87-4a24-879f-30d13de66172" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131632_472.png" alt="【A03】数据资产估值定价分析【浪潮卓数】"></div>
+                                <div class="title">【A03】数据资产估值定价分析【浪潮卓数】</div>
+                            </a></li>
+                        <li><a href="/topic/show/26d6b72f-7fd0-4e11-9c04-b407dd2239c9" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131647_347.png" alt="【A04】航空旅客付费选座意愿识别【东软】"></div>
+                                <div class="title">【A04】航空旅客付费选座意愿识别【东软】</div>
+                            </a></li>
+                        <li><a href="/topic/show/d1c0e4af-974b-47d2-bab2-cf1b76b52002" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131702_632.png" alt="【A05】智能网联汽车辅助驾驶安全信息检测系统【东软】"></div>
+                                <div class="title">【A05】智能网联汽车辅助驾驶安全信息检测系统【东软】</div>
+                            </a></li>
+                        <li><a href="/topic/show/fceec547-9b16-458a-8754-385c2e6f874d" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131725_343.png" alt="【A06】基于AI学习白流量过滤【深信服】"></div>
+                                <div class="title">【A06】基于AI学习白流量过滤【深信服】</div>
+                            </a></li>
+                        <li><a href="/topic/show/c38a50d7-fd50-4600-bf63-f0d0efb61bf9" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131739_921.png" alt="【A07】高级计划与排产平台【雪浪云】"></div>
+                                <div class="title">【A07】高级计划与排产平台【雪浪云】</div>
+                            </a></li>
+                        <li><a href="/topic/show/0b9f350d-e6fe-4884-9d81-50db0c934810" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131753_910.png" alt="【A08】归家行动-智能救援指挥系统【融创软通】"></div>
+                                <div class="title">【A08】归家行动-智能救援指挥系统【融创软通】</div>
+                            </a></li>
+                        <li><a href="/topic/show/6c22faa0-c905-4482-a0bc-3dfe11657565" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131806_974.png" alt="【A09】轨道交通智慧客流分析预测【八维通】"></div>
+                                <div class="title">【A09】轨道交通智慧客流分析预测【八维通】</div>
+                            </a></li>
+                        <li><a href="/topic/show/b7b37ca5-ffbc-4962-9bcd-e2397ac8a05a" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131821_375.png" alt="【A10】教学视频语音提取文本系统 TEFS【文思海辉】"></div>
+                                <div class="title">【A10】教学视频语音提取文本系统 TEFS【文思海辉】</div>
+                            </a></li>
+                        <li><a href="/topic/show/48b5da53-e8a8-4102-921e-26ad0ab6cd45" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131836_19.png" alt="【A11】Web3D 短视频学习教育平台 WSVTP【文思海辉】"></div>
+                                <div class="title">【A11】Web3D 短视频学习教育平台 WSVTP【文思海辉】</div>
+                            </a></li>
+                        <li><a href="/topic/show/09cd7676-fe36-4c0d-8c67-897b6c8f5f08" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131851_256.png" alt="【A12】基于手势识别的会议控制系统【长安计算】"></div>
+                                <div class="title">【A12】基于手势识别的会议控制系统【长安计算】</div>
+                            </a></li>
+                        <li><a href="/topic/show/56bb4423-0778-46d9-8cbc-32398605b7fc" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131907_987.png" alt="【A13】聚焦人脸识别的大数据测试系统【虹软】"></div>
+                                <div class="title">【A13】聚焦人脸识别的大数据测试系统【虹软】</div>
+                            </a></li>
+                        <li><a href="/topic/show/c6d53855-ffbd-40ef-ba28-7cc98d32723f" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131926_273.png" alt="【A14】移动互联时代的设备管理【虹软】"></div>
+                                <div class="title">【A14】移动互联时代的设备管理【虹软】</div>
+                            </a></li>
+                        <li><a href="/topic/show/1b6418c4-0dae-4605-a282-9d2c9b77bf29" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214131943_543.png" alt="【A17】金融领域的事件因果关系抽取【同花顺】"></div>
+                                <div class="title">【A17】金融领域的事件因果关系抽取【同花顺】</div>
+                            </a></li>
+                        <li><a href="/topic/show/fcdbad47-45f1-40bf-b442-d5ca76f1074e" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214132003_248.png" alt="【A18】债券图表数据ocr检测与文本识别【同花顺】"></div>
+                                <div class="title">【A18】债券图表数据ocr检测与文本识别【同花顺】</div>
+                            </a></li>
+                        <li><a href="/topic/show/dd0196e7-2841-434f-a91d-dffad2169bb4" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214132023_771.png" alt="【A19】智能化共享租赁平台【中信银行信用卡中心】"></div>
+                                <div class="title">【A19】智能化共享租赁平台【中信银行信用卡中心】</div>
+                            </a></li>
+                        <li><a href="/topic/show/6783f02f-6626-4cf9-8309-811ade0e7bce" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214132040_755.png" alt="【A20】基于FPGA的车牌识别应用系统【英特尔FPGA】"></div>
+                                <div class="title">【A20】基于FPGA的车牌识别应用系统【英特尔FPGA】</div>
+                            </a></li>
+                        <li><a href="/topic/show/3c0a77df-8e27-4bf6-b38c-e6ffab55de4a" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214132100_784.png" alt="【A21】面向中小型桥梁的健康监测与智能管养系统【法尔胜】"></div>
+                                <div class="title">【A21】面向中小型桥梁的健康监测与智能管养系统【法尔胜】</div>
+                            </a></li>
+                        <li><a href="/topic/show/fe1bdd73-ad79-434d-8e0d-8a281728b1cb" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214132117_767.png" alt="【A22】冰箱智能体验设计【青岛海高】"></div>
+                                <div class="title">【A22】冰箱智能体验设计【青岛海高】</div>
+                            </a></li>
+                        <li><a href="/topic/show/a54249ed-0f50-4404-b8b1-43ef119c58ee" target="_blank">
+                                <div><img src="/attached/image/20201214/20201214132132_211.png" alt="【A23】基于区块链的学位学历认证管理系统【云象网络】"></div>
+                                <div class="title">【A23】基于区块链的学位学历认证管理系统【云象网络】</div>
+                            </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sign-box">
+        <div style="margin:0 auto;width:1190px;position:relative;">
+            <div class="contestarea">
+                <p>东部区域赛：北京、天津、河北、江苏、上海、浙江、山东、福建、海南 9个省（直辖市）</p>
+                <p>中部区域赛：湖南、湖北、江西、安徽、河南、广东、广西、云南、贵州、山西、内蒙古 11个省（自治区）</p>
+                <p>西部区域赛：陕西、四川、重庆、宁夏、青海、甘肃、新疆、西藏、辽宁、吉林、黑龙江 11省（自治区、直辖市）</p>
+            </div>
+            <div style="position:absolute;top:250px;left:230px;">
+                <a href="/team/register" target="_blank"><img src="/static/images/sign.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="public">
+            <div class="col">
+                <div class="more"><a href="/experts/index"><img src="/static/images/more.jpg" alt="更多"></a></div>
+                专家
+            </div>
+            <div class="expert">
+                <ul>
+                   <li><a href="/experts/show/10">
+                       <div><img src="/attached/image/20180901/20180901131540_226.png" alt=""></div>
+                       <div class="name">孙家广</div>
+                       <div class="position">中国工程院院士，清华大学信息学院院长兼软件学院院长</div>
+                   </a>
+
+                   </li>
+                   <li><a href="/experts/show/9">
+                       <div><img src="/attached/image/20180826/20180826203001_14.jpg" alt=""></div>
+                       <div class="name">顾明</div>
+                       <div class="position">国家服务外包人力资源研究院副院长，清华大学软件学院副院长</div>
+                   </a>
+
+                   </li>
+                   <li><a href="/experts/show/11">
+                       <div><img src="/attached/image/20180821/20180821192801_212.jpg" alt=""></div>
+                       <div class="name">吴小俊</div>
+                       <div class="position">教授、博士生导师、江南大学科研院院长</div>
+                   </a>
+
+                   </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="content">
+        <div class="public">
+
+
+
+        </div>
+
+    </div>
+
+<div class="content">
+    <div class="copy">
+        <div class="et">
+            <div class="copyright">
+                <img src="/static/images/logo2.jpg" alt="">
+            </div>
+            <div class="sponsor">
+                
+            </div>
+            <div class="organizer">
+            </div>
+            <div class="weixin">
+                <img width="160" src="/static/images/weixin.png" alt="订阅号">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    Copyright@2018.All Right Reserved.信息版权所有 ICP备案号：<a href="http://beian.miit.gov.cn" target="_blank">苏ICP备18036140号-1</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/about/index">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;<a>联系我们</a>
+</div>
+</div>
+<!--下面是对联广告的html代码结构-->
+        <div class="duilian duilian_left">
+            <div class="duilian_con">
+                    <a href="" target="_blank"><img src="/attached/image/20210311/20210311110617_7.png"></a>
+            </div>
+            <a href="#" class="duilian_close">X关闭</a>
+        </div>
+        <div class="duilian duilian_right">
+            <div class="duilian_con">
+             <a href="" target="_blank"><img src="/attached/image/20210312/20210312095627_702.jpg"></a>
+            </div>
+            <a href="#" class="duilian_close">X关闭</a>
+        </div>
+<script type="text/javascript">
+    $(function () {
+        var duilian = $("div.duilian");
+        var duilian_close = $("a.duilian_close");
+
+        var screen_w = screen.width;
+        if (screen_w > 1024) {
+            duilian.show();
+        }
+        $(window).scroll(function () {
+            var scrollTop = $(window).scrollTop();
+            duilian.stop().animate({top: scrollTop + 200});
+        });
+        duilian_close.click(function () {
+            $(this).parent().hide();
+            return false;
+        });
+
+    })
+</script>
+
+<script src="/static/js/velocity.js"></script>
+<script src="/static/js/shutter.js"></script>
+<script type="text/javascript" src="/static/ckplayer/ckplayer.js" charset="UTF-8"></script>
+<script>
+    $(function () {
+        // $("#newsType li a").mouseover(
+        //         function () {
+        //             $("#newsType li a").removeClass("current");
+        //             $(this).addClass("current");
+        //             var x = $("#newsType li a").index(this);
+        //             $(".news-list").hide();
+        //             $(".news-list:eq(" + x + ")").show();
+        //         });
+        $("#exciting li a").mouseover(
+                function () {
+                    $("#exciting li a").removeClass("current");
+                    $(this).addClass("current");
+                    var x = $("#exciting li a").index(this);
+                    $(".vp").hide();
+                    $(".vp:eq(" + x + ")").show();
+                });
+        $('.shutter-desc p').text($('.shutter-img a:last').attr('data-shutter-title'))
+        $('.shutter').shutter({
+            shutterW: $('shutter').width(), // 容器宽度
+            shutterH: 391, // 容器高度
+            isAutoPlay: true, // 是否自动播放
+            playInterval: 5000, // 自动播放时间
+            curDisplay: 1, // 当前显示页
+            fullPage: false // 是否全屏展示
+        });
+    });
+    $(function () {
+
+        var videoObject = {
+            container: '#mediaplayer', //容器的ID或className
+            loop: false, //播放结束是否循环播放
+            autoplay: false,//是否自动播放
+            variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+            flashplayer: false,//如果强制使用flashplayer则设置成true
+            poster: '/attached/image/20181011/20181011223343_853.png', //封面图片
+            video: '/attached/video/20181011/20181011223349_612.mp4'//视频地址
+        };
+        var player = new ckplayer(videoObject);
+
+    })
+
+</script>
+</body>
+
+</html>

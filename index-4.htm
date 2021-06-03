@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>中国计算机技术职业资格网</title>
+<link rel="icon" href="https://www.ruankao.org.cn/asset/image/public/logo2.png">
+<link rel="stylesheet" href="https://www.ruankao.org.cn/asset/public/layui/css/layui.css?1">
+<script src="https://www.ruankao.org.cn/asset/public/layui/layui.js"></script>
+<script type="text/javascript" src="https://www.ruankao.org.cn/asset/js/public/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://www.ruankao.org.cn/asset/js/public/common.js"></script>
+<link rel="stylesheet" href="https://www.ruankao.org.cn/asset/css/public/global.css?20190515"><meta name="keywords" content="中国计算机技术职业资格网" />  
+<meta name="description" content="中国计算机技术职业资格网" />  
+	<link rel="stylesheet" href="https://www.ruankao.org.cn/asset/css/index.css?2">
+	<link rel="stylesheet" href="https://www.ruankao.org.cn/asset/public/jquerylbt/css/shutter.css">
+	
+</head>
+<body>
+	
+<div class="header">
+	<div class="container clearfix">
+		<div class="logo">
+			<a href="javascript:;"><img src="https://www.ruankao.org.cn/asset/image/public/logo.png"></a>
+			
+		</div>
+		<div class="nav" style="position:relative;">
+			<div class="navL">
+
+			</div>
+			<a href="https://www.ruankao.org.cn/index/timing" target="_blank" class="jiaoshi" style=""></a>
+		</div>
+	</div>
+
+
+	<div class="container clearfix">
+		<div class="menuNav" id="menu">
+							<a href="https://www.ruankao.org.cn" id="menu0">首页</a>
+							<a href="https://www.ruankao.org.cn/guide" id="menu1">政策法规</a>
+							<a href="https://www.ruankao.org.cn/introduction" id="menu2">考试简介</a>
+							<a href="https://www.ruankao.org.cn/arrange" id="menu3">考试安排</a>
+							<a href="https://www.ruankao.org.cn/platform" id="menu4">报考指南</a>
+							<a href="https://www.ruankao.org.cn/book/lists" id="menu5">考试用书</a>
+							<a href="https://www.ruankao.org.cn/cooperation" id="menu6">交流合作</a>
+							<a href="https://www.ruankao.org.cn/index/footdetails?id=B3" id="menu7">各地联系方式</a>
+					</div>
+	</div>
+
+	<script type="text/javascript">
+		layui.use(['jquery','layer'],function(){
+			var $ = layui.jquery ,layer = layui.layer ;
+			var arr=document.getElementById("menu").children;
+			var href=location.href;
+			for(var i in arr){
+				if(i<9){
+					if(href == arr[i].getAttribute("href")){
+						arr[i].setAttribute("class","cur");
+					}
+				}
+			}
+
+		    var href=window.location.href;
+		    if(href.indexOf("guide") > -1){
+		    	$("#menu1").addClass("cur");
+		    }else if(href.indexOf("introduction") > -1){
+		    	$("#menu2").addClass("cur");
+		    }else if(href.indexOf("arrange") > -1){
+		    	$("#menu3").addClass("cur");
+		    }else if(href.indexOf("platform") > -1){
+		    	$("#menu4").addClass("cur");
+		    }else if(href.indexOf("book") > -1){
+		    	$("#menu5").addClass("cur");
+		    }else if(href.indexOf("cooperation") > -1){
+		    	$("#menu6").addClass("cur");
+		    }else if(href.indexOf("index/footdetails?id=B3")>-1){
+		    	$("#menu7").addClass("cur");
+		    	$(".content").addClass("contact");
+		    	$(".crumb .last").text("各地联系方式");
+		    }else{
+		    	$("#menu0").addClass("cur");
+		    }
+		});
+		$(document).on("mouseenter",".jiaoshi",function(){
+			$(this).stop().animate({"width":178},100);
+		});
+		$(document).on("mouseleave",".jiaoshi",function(){
+			$(this).stop().animate({"width":65},100);
+		});
+
+		$(document).on("mouseenter",".header .menuNav a",function(){
+			$(this).addClass("hover");
+			$(".header .cur").addClass("bj").removeClass("cur");
+		});
+		$(document).on("mouseleave",".header .menuNav a",function(){
+			$(this).removeClass("hover");
+			$(".header .bj").addClass("cur");
+		});
+
+	</script>
+</div>
+<input type="hidden" id="year" value="2021">	<div class="main">
+		<div class="mainContent">
+			<div class="container">
+			    				<div class="shutter">
+				    <div class="shutter-img">
+				    					    							    	<a href="javascript:;" alt="欢迎报考全国计算机技术与软件专业技术资格（水平）考试！" data-shutter-title="欢迎报考全国计算机技术与软件专业技术资格（水平）考试！"><img src="https://www.ruankao.org.cn/asset/upload/banner/20180709/15311215735226.jpg"></a>
+					    						   					    							    	<a href="javascript:;" alt="欢迎报考全国计算机技术与软件专业技术资格（水平）考试！" data-shutter-title="欢迎报考全国计算机技术与软件专业技术资格（水平）考试！"><img src="https://www.ruankao.org.cn/asset/upload/banner/20180803/15332757951386.jpg"></a>
+					    						   					    							    	<a href="javascript:;" alt="欢迎报考全国计算机技术与软件专业技术资格（水平）考试！" data-shutter-title="欢迎报考全国计算机技术与软件专业技术资格（水平）考试！"><img src="https://www.ruankao.org.cn/asset/upload/banner/20180709/15311215961943.jpg"></a>
+					    						   						</div>
+					<ul class="shutter-btn">
+					    <li class="prev"></li>
+					    <li class="next"></li>
+					</ul>
+					<!-- <div class="shutter-desc">
+					    <p></p>
+					</div> -->
+			    </div>
+			    			</div>
+		    <div class="container clearfix contentIn">
+		    	<div class="tabChange">
+		    		<div class="topNav">
+		    			<a href="javascript:;" data-p="1" class="cur">工作动态</a>
+		    			<a href="javascript:;" data-p="2">各地动态</a>
+		    			<a href="javascript:;" data-p="3">报考指南</a>
+		    			<a href="javascript:;" data-p="4">考试安排</a>
+		    		</div>
+		    		<div class="changeContent">
+			    		<!-- 工作动态star -->
+			    		<div class="topNavCon" id="con_m1" >
+			    			<div class="news">
+			    							    					<div class="lefts layui-carousel" id="table1">
+			    						<div carousel-item>
+			    											    										    													                		<a href="https://www.ruankao.org.cn/index/details?id=100000180611103104749935" target="_blank" alt="2018年全国计算机技术与软件专业技术资格（水平）考试工作会议顺利召开"><img src="https://www.ruankao.org.cn/asset/upload/img/20180627/工作动态01.jpg" width="100%" height="100%" class="left" title="2018年全国计算机技术与软件专业技术资格（水平）考试工作会议顺利召开"></a>
+							                						    										    													                		<a href="https://www.ruankao.org.cn/index/details?id=100000180615141501866121" target="_blank" alt="工信部教育与考试中心马蔷主任赴江苏调研"><img src="https://www.ruankao.org.cn/asset/upload/img/20180627/工作动态02.jpg" width="100%" height="100%" class="left" title="工信部教育与考试中心马蔷主任赴江苏调研"></a>
+							                						    										    													                		<a href="https://www.ruankao.org.cn/index/details?id=100000180615135638336729" target="_blank" alt="2017年全国通信专业技术人员职业水平考试工作会议召开"><img src="https://www.ruankao.org.cn/asset/upload/img/20180627/工作动态03.jpg" width="100%" height="100%" class="left" title="2017年全国通信专业技术人员职业水平考试工作会议召开"></a>
+							                						    										    													                		<a href="https://www.ruankao.org.cn/index/details?id=100000180615140035953702" target="_blank" alt="马蔷调研湖北省软考办和武汉大学计算机学院"><img src="https://www.ruankao.org.cn/asset/upload/img/20180627/工作动态04.jpg" width="100%" height="100%" class="left" title="马蔷调研湖北省软考办和武汉大学计算机学院"></a>
+							                						    										    									    				</div>
+				    				</div>
+				    				<div class=" rights">
+				    									    						<ul class=" newsList">
+								    																<li><label class="right">[2021-01-22]</label><a href="https://www.ruankao.org.cn/index/details?id=100002210122155338924354" title="《数据库系统工程师教程（第四版）》于2020年12月底出版"  data-year="2021">《数据库系统工程师教程（第四版）》于2020年12月底出版</a></li>
+																									<li><label class="right">[2021-01-22]</label><a href="https://www.ruankao.org.cn/index/details?id=100002210122155508857061" title="新版《数据库系统工程师考试大纲》于2020年12月底出版"  data-year="2021">新版《数据库系统工程师考试大纲》于2020年12月底出版</a></li>
+																									<li><label class="right">[2021-01-11]</label><a href="https://www.ruankao.org.cn/index/details?id=100003210111082235662907" title="关于2020年度计算机技术与软件专业技术资格（水平）考试合格标准有关事项的通告"  data-year="2021">关于2020年度计算机技术与软件专业技术资格（水平）考试合格标准有关事项的通告</a></li>
+																									<li><label class="right">[2020-12-18]</label><a href="https://www.ruankao.org.cn/index/details?id=100002201218145543655528" title="2020年全国计算机技术与软件专业技术资格(水平)考试成绩查询通知"  data-year="2020">2020年全国计算机技术与软件专业技术资格(水平)考试成绩查询通知</a></li>
+																									<li><label class="right">[2020-11-13]</label><a href="https://www.ruankao.org.cn/index/details?id=100003201113092148854908" title="2020年计算机技术与软件专业技术资格（水平）考试顺利举行"  data-year="2020">2020年计算机技术与软件专业技术资格（水平）考试顺利举行</a></li>
+																									<li><label class="right">[2020-08-26]</label><a href="https://www.ruankao.org.cn/index/details?id=100003200826101159486575" title="《信息安全工程师教程（第二版）》将于八月底出版"  data-year="2020">《信息安全工程师教程（第二版）》将于八月底出版</a></li>
+																				    		</ul>
+								    		<span><a href="https://www.ruankao.org.cn/index/work">更多>></a></span>
+				    									    				</div>
+			    								    		</div>
+			    		</div>
+			    		<!-- 工作动态end -->
+			    		<!-- 各地动态start	 -->
+			    		<div class="topNavCon" id="con_m2" style="display: none;">
+			    			<div class="news">
+			    							    					<div class="lefts layui-carousel" id="table2">
+			    						<div carousel-item>
+			    											    										    													                		<a href="https://www.ruankao.org.cn/index/details?id=100000180627181545385075" target="_blank" alt="新时代软考助力培养工程型、应用型、创新型人才----湖北软考报告团赴省内各高校宣讲"><img src="https://www.ruankao.org.cn/asset/upload/img/20180627/浙江04.jpg" width="100%" height="100%" class="left" title="新时代软考助力培养工程型、应用型、创新型人才----湖北软考报告团赴省内各高校宣讲"></a>
+							                						    										    													                		<a href="https://www.ruankao.org.cn/index/details?id=100000180627181253810041" target="_blank" alt="落实&ldquo;五个到位&rdquo;，全力以赴抓好2017年上半年全国计算机与软件资格考试的组织实施工作"><img src="https://www.ruankao.org.cn/asset/upload/img/20180628/153017935951.png" width="100%" height="100%" class="left" title="落实&ldquo;五个到位&rdquo;，全力以赴抓好2017年上半年全国计算机与软件资格考试的组织实施工作"></a>
+							                						    										    									    				</div>
+				    				</div>
+				    				<div class=" rights">
+				    									    						<ul class=" newsList">
+								    																<li><label class="right">[2020-08-18]</label><a href="https://www.ruankao.org.cn/index/details?id=100003200818142713885973" data-year="2020" title="关于2020年计算机技术与软件专业技术资格(水平)考试有关事项的通知" ><span style="color: red;margin-right:4px;">[山西]</span>关于2020年计算机技术与软件专业技术资格(水平)考试有关事项的通知</a></li>
+																									<li><label class="right">[2019-09-10]</label><a href="https://www.ruankao.org.cn/index/details?id=100003190910090412868293" data-year="2019" title="关于2019年下半年全国计算机技术与软件专业技术资格(水平)考试有关事项的通知" ><span style="color: red;margin-right:4px;">[山西]</span>关于2019年下半年全国计算机技术与软件专业技术资格(水平)考试有关事项的通知</a></li>
+																									<li><label class="right">[2019-02-27]</label><a href="https://www.ruankao.org.cn/index/details?id=100003190227195721882590" data-year="2019" title="关于 2019 年上半年全国计算机技术与软件专业技术资格(水平)考试有关事项的通知" ><span style="color: red;margin-right:4px;">[山西]</span>关于 2019 年上半年全国计算机技术与软件专业技术资格(水平)考试有关事项的通知</a></li>
+																									<li><label class="right">[2018-11-16]</label><a href="https://www.ruankao.org.cn/index/details?id=100001181116135245931209" data-year="2018" title="2018年下半年全国计算机软件资格考试顺利举行" ><span style="color: red;margin-right:4px;">[湖北]</span>2018年下半年全国计算机软件资格考试顺利举行</a></li>
+																									<li><label class="right">[2018-08-30]</label><a href="https://www.ruankao.org.cn/index/details?id=100003180830125507174770" data-year="2018" title="关于2018年下半年全国计算机技术与软件专业技术资格(水平)考试有关事项的通知" ><span style="color: red;margin-right:4px;">[山西]</span>关于2018年下半年全国计算机技术与软件专业技术资格(水平)考试有关事项的通知</a></li>
+																									<li><label class="right">[2018-04-16]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180627181545385075" data-year="2018" title="新时代软考助力培养工程型、应用型、创新型人才----湖北软考报告团赴省内各高校宣讲" ><span style="color: red;margin-right:4px;">[湖北]</span>新时代软考助力培养工程型、应用型、创新型人才----湖北软考报告团赴省内各高校宣讲</a></li>
+																				    		</ul>
+								    		<span><a href="https://www.ruankao.org.cn/index/aroundWork">更多>></a></span>
+				    									    				</div>
+			    								    		</div>
+			    		</div>
+			    		<!-- 各地动态end -->
+			    		<!-- 报考指南star -->
+			    		<div class="topNavCon" id="con_m3" style="display: none;" >
+			    			<div class="news">
+		    					<div class="lefts layui-carousel" id="table3">
+		    						<div carousel-item>
+		    										    									    												                		<a href="javascript:;" target="_blank" alt="报考指南"><img src="https://www.ruankao.org.cn/asset/upload/img/20180706/1530844315891.png" width="100%" height="100%" class="left" title="报考指南"></a>
+						                					    									    								    				</div>
+			    				</div>
+			    				<div class=" rights">
+
+				    				<table class="layui-table text" style="margin-top:0;">
+										<thead>
+											<tr>
+												<th></th>
+																									<th>计算机软件</th>
+																									<th>计算机网络</th>
+																									<th>计算机应用技术</th>
+																									<th>信息系统</th>
+																									<th>信息服务</th>
+																							</tr>
+
+										</thead>
+										<tbody>
+																																				<tr>
+														<td class="tit">高级资格</td>
+														<td colspan="5">
+																																																																					<a href="https://www.ruankao.org.cn/platform/details?code=03_01" title="信息系统项目管理师">信息系统项目管理师</a>&nbsp;&nbsp;
+																																																																																																																																																																																																																																																																																							<a href="https://www.ruankao.org.cn/platform/details?code=03_02" title="系统分析师">系统分析师</a>&nbsp;&nbsp;
+																																																																																																																																																																																																																																																																																							<a href="https://www.ruankao.org.cn/platform/details?code=03_03" title="系统架构设计师">系统架构设计师</a>&nbsp;&nbsp;
+																																																																																																																																																																																																																																																																																							<a href="https://www.ruankao.org.cn/platform/details?code=03_04" title="网络规划设计师">网络规划设计师</a>&nbsp;&nbsp;
+																																																																																																																																																																																																																																																																																							<a href="https://www.ruankao.org.cn/platform/details?code=03_05" title="系统规划与管理师">系统规划与管理师</a>&nbsp;&nbsp;
+																																																																</td>
+													</tr>
+																																																<tr>
+														<td class="tit">中级资格</td>
+																													<td>
+																																																			<p><a href="https://www.ruankao.org.cn/platform/details?code=02_14" title="软件评测师">软件评测师</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=02_15" title="软件设计师">软件设计师</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=02_16" title="软件过程能力评估师">软件过程能力评估师</a></p>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																												</td>
+																													<td>
+																																																																																																																																																						<p><a href="https://www.ruankao.org.cn/platform/details?code=02_24" title="网络工程师">网络工程师</a></p>
+																																																																																																																																																																																																																																																																																																																																																																																																																											</td>
+																													<td>
+																																																																																																																																																																																							<p><a href="https://www.ruankao.org.cn/platform/details?code=02_34" title="多媒体应用设计师">多媒体应用设计师</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=02_35" title="嵌入式系统设计师">嵌入式系统设计师</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=02_36" title="计算机辅助设计师">计算机辅助设计师</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=02_37" title="电子商务设计师">电子商务设计师</a></p>
+																																																																																																																																																																																																																																																																																							</td>
+																													<td>
+																																																																																																																																																																																																																																																																																																																											<p><a href="https://www.ruankao.org.cn/platform/details?code=02_43" title="系统集成项目管理工程师">系统集成项目管理工程师</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=02_44" title="信息系统监理师">信息系统监理师</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=02_47" title="信息安全工程师">信息安全工程师</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=02_45" title="数据库系统工程师">数据库系统工程师</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=02_46" title="信息系统管理工程师">信息系统管理工程师</a></p>
+																																																																																																																		</td>
+																													<td>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																<p><a href="https://www.ruankao.org.cn/platform/details?code=02_55" title="计算机硬件工程师">计算机硬件工程师</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=02_54" title="信息技术支持工程师">信息技术支持工程师</a></p>
+																																																</td>
+																											</tr> 
+																																																<tr>
+														<td class="tit">初级资格</td>
+																													<td>
+																																																			<p><a href="https://www.ruankao.org.cn/platform/details?code=01_18" title="程序员">程序员</a></p>
+																																																																																																																																																																																																																																																						</td>
+																													<td>
+																																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=01_28" title="网络管理员">网络管理员</a></p>
+																																																																																																																																																																																																																					</td>
+																													<td>
+																																																																																																																					<p><a href="https://www.ruankao.org.cn/platform/details?code=01_38" title="多媒体应用制作技术员">多媒体应用制作技术员</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=01_39" title="电子商务技术员">电子商务技术员</a></p>
+																																																																																																																																																			</td>
+																													<td>
+																																																																																																																																																																																							<p><a href="https://www.ruankao.org.cn/platform/details?code=01_48" title="信息系统运行管理员">信息系统运行管理员</a></p>
+																																																																																																																		</td>
+																													<td>
+																																																																																																																																																																																																																								<p><a href="https://www.ruankao.org.cn/platform/details?code=01_59" title="网页制作员">网页制作员</a></p>
+																																																																				<p><a href="https://www.ruankao.org.cn/platform/details?code=01_58" title="信息处理技术员">信息处理技术员</a></p>
+																																																</td>
+																											</tr> 
+																																	</tbody>
+									</table>
+			    				</div>
+				    		</div>
+			    		</div>
+			    		<!-- 报考指南end -->
+			    		<!-- 考试安排star -->
+			    		<div class="topNavCon" id="con_m4" style="display: none;" >
+			    			<div class="news">
+			    							    					<div class="lefts layui-carousel" id="table4">
+			    						<div carousel-item>
+			    											    										    													                		<a href="https://www.ruankao.org.cn/arrange/details?id=100001210209122059467350" target="_blank" alt="考试安排"><img src="https://www.ruankao.org.cn/asset/upload/img/20210319/16161409098823.png" width="100%" height="100%" class="left" title="考试安排"></a>
+							                						    										    									    				</div>
+				    				</div>
+				    				<div class=" rights">
+				    										    					<ul class="newsList">
+								    																<li><label class="right">[2021-02-09]</label><a href="https://www.ruankao.org.cn/index/details?id=100001210209122059467350" data-year="2021" title="2021年计算机技术与软件专业技术资格(水平)考试安排有关事项的通知">2021年计算机技术与软件专业技术资格(水平)考试安排有关事项的通知</a></li>
+																									<li><label class="right">[2020-06-16]</label><a href="https://www.ruankao.org.cn/index/details?id=100003200616095737557589" data-year="2020" title="2020年计算机技术与软件专业技术资格(水平)考试安排有关事项的通知">2020年计算机技术与软件专业技术资格(水平)考试安排有关事项的通知</a></li>
+																									<li><label class="right">[2018-01-16]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180615160133562769" data-year="2018" title="关于印发2018年度计算机技术与软件专业技术资格（水平）考试工作安排的通知 ">关于印发2018年度计算机技术与软件专业技术资格（水平）考试工作安排的通知 </a></li>
+																									<li><label class="right">[2017-01-18]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180615160248663797" data-year="2017" title="关于印发2017年度计算机技术与软件专业技术资格（水平）考试工作安排的通知 ">关于印发2017年度计算机技术与软件专业技术资格（水平）考试工作安排的通知 </a></li>
+																									<li><label class="right">[2016-01-07]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180615160345218332" data-year="2016" title="关于印发2016年度计算机技术与软件专业技术资格（水平）考试工作安排的通知 ">关于印发2016年度计算机技术与软件专业技术资格（水平）考试工作安排的通知 </a></li>
+																									<li><label class="right">[2015-01-12]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180615160432659524" data-year="2015" title="关于印发2015年度计算机技术与软件专业技术资格（水平）考试工作安排的通知 ">关于印发2015年度计算机技术与软件专业技术资格（水平）考试工作安排的通知 </a></li>
+																					    	</ul>
+									    	<span><a href="https://www.ruankao.org.cn/arrange">更多>></a></span>
+							    						    				</div>
+			    								    		</div>
+			    		</div>
+			    		<!-- 考试安排end -->
+		    		</div>
+		    	</div>
+					<div class="ui-item15 link">
+						<div class="left">
+					
+							<ul>
+								<li><a href="https://www.ruankao.org.cn/index/ind" target="_blank"><div><img src="https://www.ruankao.org.cn/asset/image/index/ksjj2.png" alt="考试简介"></div><span>考试简介</span></a></li>
+								<li><a href="https://www.ruankao.org.cn/index/zgsz" target="_blank"><div><img src="https://www.ruankao.org.cn/asset/image/index/zgsz2.png" alt="资格设置"></div><span>资格设置</span></a></li>
+								<li><a href="https://www.ruankao.org.cn/index/hgzs" target="_blank"><div><img src="https://www.ruankao.org.cn/asset/image/index/hgzs2.png" alt="合格证书"></div><span>合格证书</span></a></li>
+								<li><a href="https://www.ruankao.org.cn/book/lists" target="_blank"><div><img src="https://www.ruankao.org.cn/asset/image/index/ksys2.png" alt="考试用书"></div><span>考试用书</span></a></li>
+							</ul>
+						</div>
+						<div class="right">
+						
+							<ul>
+								<li><a href="https://kw.ruankao.org.cn/sign/welcome" class="manageEnter" target="_blank"><div><img src="https://www.ruankao.org.cn/asset/image/index/kwgl2.png" alt="考务管理入口"></div><span>考务管理入口</span></a></li>
+								<li><a href="https://bm.ruankao.org.cn/sign/welcome" class="enrollEnter" target="_blank"><div><img src="https://www.ruankao.org.cn/asset/image/index/bmrk2.png" alt="报名入口"></div><span>报名入口</span></a></li>
+								<li><a href="https://query.ruankao.org.cn/score/main" class="scoreEnter" target="_blank"><div><img src="https://www.ruankao.org.cn/asset/image/index/cjcx2.png" alt="成绩查询"></div><span>成绩查询</span></a></li>
+								<li><a href="https://query.ruankao.org.cn/certificate/main" class="certificateEnter" target="_blank"><div><img src="https://www.ruankao.org.cn/asset/image/index/zscx2.png" alt="证书查询"></div><span>证书查询</span></a></li>
+							</ul>
+						</div>
+					</div>
+		    		<div class="ui-item15 modeleNews">
+		    			<div class="layui-col-48 left">
+		    				<div class="toptit"><label>考试研究</label><a href="https://www.ruankao.org.cn/index/ksyj">更多>></a> </div>
+			    					    					<ul class="newsList">
+					    													<li><label class="right">[2010-05-19]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180627092942409660" data-year="2010" title="软考专家评软考（八）" >软考专家评软考（八）</a></li>
+																			<li><label class="right">[2010-03-30]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180627092856955378" data-year="2010" title="软考专家评软考（七）" >软考专家评软考（七）</a></li>
+																			<li><label class="right">[2010-03-18]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180627092719774790" data-year="2010" title="软考专家谈软考（六）" >软考专家谈软考（六）</a></li>
+																			<li><label class="right">[2010-03-02]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180627092626311071" data-year="2010" title="软考专家谈软考（五）" >软考专家谈软考（五）</a></li>
+																			<li><label class="right">[2009-08-13]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180627092518633752" data-year="2009" title="软考专家谈软考（四）" >软考专家谈软考（四）</a></li>
+																			<li><label class="right">[2009-08-06]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180627092419111335" data-year="2009" title="软考专家谈软考（三）" >软考专家谈软考（三）</a></li>
+															    	</ul>
+				    				    			</div>
+		    			<div class="layui-col-48 right">
+		    				<div class="toptit"><label>交流合作</label><a href="https://www.ruankao.org.cn/cooperation">更多>></a></div>
+		    						    					<ul class="newsList">
+					    													<li><label class="right">[2017-11-29]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180611104204588273" data-year="2017" title="工业和信息化部教育与考试中心赴荷兰访问交流" >工业和信息化部教育与考试中心赴荷兰访问交流</a></li>
+																			<li><label class="right">[2016-11-14]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180615142346883060" data-year="2016" title="工业和信息化部教育与考试中心赴日本访问交流" >工业和信息化部教育与考试中心赴日本访问交流</a></li>
+																			<li><label class="right">[2015-12-14]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180626151727333532" data-year="2015" title="工业和信息化部教育与考试中心赴韩国访问交流 " >工业和信息化部教育与考试中心赴韩国访问交流 </a></li>
+																			<li><label class="right">[2014-12-09]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180615161350886443" data-year="2014" title="工业和信息化部教育与考试中心组团赴港澳地区执行调研计算机软件考试和通信考试工作 " >工业和信息化部教育与考试中心组团赴港澳地区执行调研计算机软件考试和通信考试工作 </a></li>
+																			<li><label class="right">[2011-12-13]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180615161514972045" data-year="2011" title="工业和信息化部教育与考试中心组团考察台湾地区信息通信业教育培训和认证 " >工业和信息化部教育与考试中心组团考察台湾地区信息通信业教育培训和认证 </a></li>
+																			<li><label class="right">[2011-10-28]</label><a href="https://www.ruankao.org.cn/index/details?id=100000180615162337474349" data-year="2011" title="中国计算机技术与软件专业技术资格(水平)考试发展20年座谈会在京举行" >中国计算机技术与软件专业技术资格(水平)考试发展20年座谈会在京举行</a></li>
+															    	</ul>
+				    				    			</div>
+		    		</div>
+		    		<div class="ui-item15">
+		    			<div class="toptit"><label>各地考试机构</label></a></div>
+		    			<div class="city pd1">
+		    												<a href="http://rsj.beijing.gov.cn/ywsite/bjpta/" target="_blank">北京</a>
+															<a href="http://www.tjeihr.org.cn" target="_blank">天津</a>
+															<a href="http://www.hebpta.com.cn" target="_blank">河北</a>
+															<a href="#" target="_blank">山西</a>
+															<a href="http://www.impta.com/" target="_blank">内蒙古</a>
+															<a href="http://www.nbrkb.net" target="_blank">宁波</a>
+															<a href="http://www.lnitec.com" target="_blank">辽宁</a>
+															<a href="http://www.jlzkb.com/" target="_blank">吉林</a>
+															<a href="http://www.hljrsks.org.cn/" target="_blank">黑龙江</a>
+															<a href="http://www.dlrkb.com" target="_blank">大连</a>
+															<a href="http://rsj.sh.gov.cn/xxzsp/ksy/index801.jsp" target="_blank">上海</a>
+															<a href="http://www.jsiteec.org" target="_blank">江苏</a>
+															<a href="http://www.zjrjks.org/" target="_blank">浙江</a>
+															<a href="http://www.apta.gov.cn/" target="_blank">安徽</a>
+															<a href="http://gxt.fujian.gov.cn/" target="_blank">福建</a>
+															<a href="http://www.itetc.org/" target="_blank">江西</a>
+															<a href="http://hrss.shandong.gov.cn/rsks/" target="_blank">山东</a>
+															<a href="http://www.chniee.org.cn/" target="_blank">河南</a>
+															<a href="http://www.hbsoft.net/" target="_blank">湖北</a>
+															<a href="http://www.hniec.org/" target="_blank">湖南</a>
+															<a href="http://rsks.gd.gov.cn/" target="_blank">广东</a>
+															<a href="http://www.gxpta.com.cn/" target="_blank">广西</a>
+															<a href="http://hrss.hainan.gov.cn/hnjy" target="_blank">海南</a>
+															<a href="http://cqitrk.jjxxw.cq.gov.cn/main/index.html" target="_blank">重庆</a>
+															<a href="http://202.61.89.231/index.aspx" target="_blank">四川</a>
+															<a href="http://zgks.xxzx.guizhou.gov.cn/" target="_blank">贵州</a>
+															<a href="http://www.ynxr.com/" target="_blank">云南</a>
+															<a href="#" target="_blank">西藏</a>
+															<a href="http://www.shaanxirk.com" target="_blank">陕西</a>
+															<a href="http://ks.rst.gansu.gov.cn/ncms/index.shtml" target="_blank">甘肃</a>
+															<a href="http://www.qhpta.com" target="_blank">青海</a>
+															<a href="http://www.nxpta.com/" target="_blank">宁夏</a>
+															<a href="http://www.xjctc.net/" target="_blank">新疆</a>
+															<a href="http://btpta.xjbt.gov.cn/" target="_blank">新疆兵团</a>
+															<a href="http://www.apec.org.hk/" target="_blank">香港</a>
+															<a href="http://cms.cpttm.org.mo" target="_blank">澳门</a>
+									    			</div>
+		    		</div>
+		  
+		    </div>
+		</div>
+	</div>
+	
+<div class="footers  row2">
+	<div class="container">
+		<div class="ui-item15 firendHref">
+							<div>
+											<a href="http://www.mohrss.gov.cn/" target="_blank" title="人社部"><img src="https://www.ruankao.org.cn/asset/upload/link/20180702/15305131464385.jpg"></a>
+											<a href="http://www.miit.gov.cn/" target="_blank" title="工信部"><img src="https://www.ruankao.org.cn/asset/upload/link/20180702/15305132503402.jpg"></a>
+											<a href="http://www.ceiaec.org/" target="_blank" title="kszx"><img src="https://www.ruankao.org.cn/asset/upload/link/20180702/15305131903485.jpg"></a>
+											<a href="http://www.gxbzhp.org.cn/" target="_blank" title="招聘考试"><img src="https://www.ruankao.org.cn/asset/upload/link/20180702/15305132704474.jpg"></a>
+											<a href="http://www.txks.org.cn/" target="_blank" title="通信考试"><img src="https://www.ruankao.org.cn/asset/upload/link/20180702/15305132832017.jpg"></a>
+											<a href="http://www.tech-skills.org.cn" target="_blank" title="技术技能学习平台"><img src="https://www.ruankao.org.cn/asset/upload/link/20190226/15511482433182.png"></a>
+									</div>
+					</div>
+	</div>
+	<div class=" footer">
+		<div class="container">
+		<div class="copyright" style="width: 100%;text-align: center;">
+			<div class="copyTxt">
+				<div class="href">
+											<a href="https://www.ruankao.org.cn/index/footdetails?id=B1">关于我们</a>
+													|																	<a href="https://www.ruankao.org.cn/index/footdetails?id=B2">法律声明</a>
+															</div>
+				<div class="address">主办单位：工业和信息化部教育与考试中心 京ICP备12047920号-2 </div>
+			</div>
+		</div>
+		<div style="text-align:center;margin:0 auto; padding:20px 0 0;">
+		 		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010702001764" style="display:inline-block;text-decoration:none;height:20px;font-size:12px;line-height:20px;"><img src="https://www.ruankao.org.cn/asset/image/public/hb.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#ffffff;">京公网安备11010702001764号</p></a>
+		 	</div>
+
+		</div>
+	</div>
+</div>
+<script>
+	layui.use(['jquery'],function(){
+		var $=layui.jquery;
+		$(".footers").css("margin-top",-$(".footers").outerHeight());
+		$(".mainContent").css("padding-bottom",$(".footers").outerHeight());
+	})
+</script>	<script src="https://www.ruankao.org.cn/asset/public/jquerylbt/js/velocity.js"></script>
+	<script src="https://www.ruankao.org.cn/asset/public/jquerylbt/js/shutter.js"></script>
+	<script src="https://www.ruankao.org.cn/asset/js/public/public.js"></script>
+<script>
+
+</script>
+<script type="text/javascript">
+layui.use(['form','jquery','layer','carousel'],function(){
+	var $ = layui.jquery ,layer = layui.layer ;
+	var carousel = layui.carousel;
+	$(function () {
+	$(".shutter-desc p").text($(".shutter a").last().attr("data-shutter-title"))
+	    $('.shutter').shutter({
+			shutterW: '100%', // 容器宽度
+			shutterH: $(".container").outerWidth()>1000?"400px":"334px", // 容器高度
+			isAutoPlay: true, // 是否自动播放
+			playInterval: 3000, // 自动播放时间
+			curDisplay: 3, // 当前显示页
+			fullPage: false // 是否全屏展示
+		});
+	});
+	  for(var i=1;i<=4;i++){
+	  		// 工作动态轮播
+		carousel.render({
+		    elem: '#table'+i
+		    ,width: '400px' //设置容器宽度
+		    ,height:'260px'
+		    ,arrow: 'always' //始终显示箭头
+		    ,anim: 'default' //切换动画方式
+		    ,indicator:'none'
+		    ,interval:3000
+		});
+	  }
+	
+
+      
+
+   $(".topNav a").mouseover(function(data){
+   		var p = $(this).attr('data-p');
+   		for (var i = 1; i <= 4 ; i++) {
+   			if (p==i) {
+				$("#con_m"+i).show().siblings(".topNavCon").hide();
+				$(this).addClass('cur').siblings().removeClass("cur");
+   			} 
+   		}
+   });
+
+
+    //查询区
+    $(document).on('click','.manageEnter,.enrollEnter,.scoreEnter,.certificateEnter',function(){
+    	if($(this).attr("href")=='javascript:;'){
+			layer.msg($(this).text()+"尚未开放！");
+			return false;
+		}
+    });
+
+    
+	hasNew("newsList",'li',1);
+});
+</script>
+</body>
+</html>

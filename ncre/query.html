@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>全国计算机等级考试（NCRE）成绩查询 - 中国教育考试网</title>
+    <meta name="renderer" content="webkit">
+    <meta name="picture" content="/res/Home/logo_300.jpg">
+    <meta name="keywords" content="全国计算机等级考试（NCRE）成绩查询 - 中国教育考试网 ">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="Shortcut Icon" href="/query/images/favicon.ico">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?dc1d69ab90346d48ee02f18510292577";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        //屏蔽右键
+        document.oncontextmenu = new Function("event.returnValue=false;");
+        document.onselectstart = new Function("event.returnValue=false;");
+    </script>
+   <script>
+        if(navigator.userAgent.indexOf("Weibo")>0)
+        {
+            var cur=new Date().getTime(),lm=localStorage.getItem('Last-Modified')||0;
+            if(cur-lm>600*1000)// 大于10分钟
+            {
+                localStorage.setItem('Last-Modified',cur);
+                if(lm)location.reload(true);// 强制刷新
+            }
+            //document.write("<br>cache: "+(cur-lm)/1000+"s");
+        }
+    </script> 
+    <link href="/query/css/query.css" rel="stylesheet" type="text/css">
+    <!-- <script src="/query/js/jsencrypt.min.js" type="text/javascript"></script> -->
+    <script src="/query/js/util.js" type="text/javascript"></script>
+    <!-- <script type="text/javascript">document.write("<script src='/ncre/js/data.js?t="+Math.floor(new Date().getTime()/(60*60*1000))+"' type='text/javascript'><\/script>");</script> -->
+    <script src="/ncre/js/data.js" type="text/javascript"></script>
+    <script src="/ncre/js/query.js?v=20201106" type="text/javascript"></script>
+    <!-- <script src="/js/jquery-1.7.min.js"></script>
+     -->
+    <script src="/query/js/query_write.js"></script>
+</head>
+<body>
+<div id="Body">
+    <script type="text/javascript">getHeader();</script>
+    <div id="Content">
+        <div id="Content1">
+            <div id="query_param">
+                <div class="queryLeft">
+                    <div class="c_tits"><span id="parm_sn"></span>成绩查询<i>|</i><span class="host"><a
+                            href="http://cjcx.neea.edu.cn/html1/folder/1508/206-1.htm?sid=300"
+                            target="_blank">更早的成绩查询</a></span></div>
+                    <!-- <p class="h2" style="font-size:14px;margin-bottom:35px;text-align:center;margin-top:-20px">仅限查询<span id="parm_sn2"></span>考试成绩。</p> -->
+                    <div class="container">
+                        <ol>
+                            <li><span>考试科目：</span>
+                                <div>
+                                    <select id="bkjb" name="bkjb"></select>
+                                </div>
+                                <em class='tips' id="bkjberror"></em></li>
+                            <li class="tip_n"><span>&nbsp;</span>
+                                <div>请选择考试科目</div>
+                            </li>
+                            <li><span>证件号码：</span>
+                                <div>
+                                    <input type="text" id="zjhm" name="zjhm" value="" alt="证件号码" size="18"
+                                           maxlength="18" onblur="result.checkParm(this,true);"
+                                           autocomplete="off">
+                                    <!--<input type="text" id="zjhm" name="zjhm" value="" alt="证件号码" size="18"
+                                           maxlength="18" onblur="result.checkParm(this,true);"
+                                           onchange="result.changeZ();" autocomplete="off">-->
+                                </div>
+                                <em class='tips' id="zjhmerror"></em></li>
+                            <li class="tip_n"><span>&nbsp;</span>
+                                <div>请输入有效证件号码</div>
+                            </li>
+                            <li><span>姓名：</span>
+                                <div>
+                                    <input type="text" id="name" name="name" value="" alt="姓名"
+                                           onblur="result.checkParm(this,false);" autocomplete="off">
+                                </div>
+                                <em class='tips' id="nameerror"></em></li>
+                            <li class="tip_n"><span>&nbsp;</span>
+                                <div>请输入姓名</div>
+                            </li>
+                            <li id="verifyLi" style='margin-bottom: 5px;display: none;'><span>验证码：</span>
+                                <div>
+                                    <input style="text-transform: lowercase; width:93px;float:left" alt="验证码"
+                                           onfocus="result.verifyShow()" onchange="value=value.toLowerCase()"
+                                           maxlength="4" id="verify" autocomplete="off">
+                                    <div id="verifysDiv" style="display:none">
+                                        <a href="javascript:result.verifys()" style="float:left;"><img id="img_verifys"
+                                                                                                       src="" alt=""
+                                                                                                       style="visibility: visible;"></a>
+                                    </div>
+                                    <div id="verifysLoading" style="display:none">
+                                        <img src="/query/images/verifysLoading.gif" alt="" style="visibility: visible;">
+                                    </div>
+                                    <div id="verifysStrDiv" style="display:block">
+                                        <a href="javascript:result.verifys()">点击获取验证码</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="verifyTipLi" style='margin-bottom: 8px;display: none;'>
+                                <span>&nbsp;</span>&nbsp;&nbsp;<em class='tips' id="verifyerror"></em>
+                            </li>
+                            <div class="clear"></div>
+                        </ol>
+
+                        <div class="s3">
+                            <input type="button" value="查询" id="submitButton" style="cursor:hand;">
+                            <input type="button" name="button" id="button" value="重填">
+                            <input type="button" value="返回"
+                                   onclick="javascript:window.open('http://cjcx.neea.edu.cn/','_self')"
+                                   style="cursor:pointer">
+                        </div>
+
+                        <div style="padding: 20px 52px;text-align: center;">
+                            <p style="color: red;margin-bottom: 10px">注：自2018年3月起，考试结果将以等第形式公布，等第共分优秀、良好、及格、不及格四等，<br/>其中90－100分为优秀、80－89分为良好、60－79分为及格、0－59分为不及格。
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="intr">
+                    <iframe src="http://www.neea.edu.cn/html1/report/17101/4156-1.htm" frameborder="0" scrolling="no"
+                            width="300" height="216"></iframe>
+                    <div class="intrtit" style="border-bottom: none;margin-bottom: 0px;margin-top: 8px;"><i></i>操作说明</div>
+                    <ul>
+                        <li style="color:red;">
+                            1、输入报考时的身份证件号码和姓名，点击查询按钮进行查询。
+                        </li>
+                        <li>
+                            2、如果输入信息正确，对应考试的成绩信息将会在下一个页面列出。
+                        </li>
+                        <!-- <li>
+                            3、页面上部操作步骤中橘黄色字体内容表示您所处的查询位置。
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div id="query_result" style="display:none">
+                <div class="c_tits"><span id="sn"></span> - 查看成绩</div>
+                <div id="resultDiv"></div>
+                <div class="s3 hisbtn">
+                    <input type="button" value="返回" onclick="javascript:window.open('http://cjcx.neea.edu.cn/','_self')"
+                           style="cursor: pointer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button
+                        onclick="javascript:goon();">继续查询
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">getFooter();</script>
+</div>
+<div id="shadeDiv" class="shadeDiv" style="display: none;"><div class="lodcenter"><img src="../query/images/loading.gif"><br><br>正在查询成绩，请耐心等待...</div></div>
+</body>
+</html>

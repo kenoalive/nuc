@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html>
+        <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit" /> 
+<meta name="viewport" content="width=550, initial-scale=1">
+<title>山西科技综合管理服务平台（系统）</title>
+<meta charset="UTF-8">
+<link href="/stpmmp/front/css/css_index/head.css" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/homePage.css?1" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/common.css" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/default.css?1" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/demo.css?1" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/src/css/jquery.flipster.css?1" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/flipsternavtabs.css?1" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/baidunewsjdt/css/style.css?1" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/ButtonStylesInspiration/css/normalize.css?1" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/ButtonStylesInspiration/css/vicons-font.css?1" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/ButtonStylesInspiration/css/base.css?1" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/ButtonStylesInspiration/css/buttons.css?1" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/css_index/mobile0623/css/lanrenzhijia.css?" type="text/css" rel="stylesheet"  /><link href="/stpmmp/theme/default/css/ui-dialog.css" type="text/css" rel="stylesheet"  /><link href="/stpmmp/theme/default/css/jquery-ui-1.9.2.custom.min.css" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/index.css?1" type="text/css" rel="stylesheet"  /><script type="text/javascript" src="/stpmmp/script/seajs/sea.js"  ></script><script type="text/javascript" src="/stpmmp/script/seajs/seajsconfig.js"  ></script><script  type="text/javascript">
+    seajs.use(["jquery", "jx_msgbox", "jxbrms_login","crypto-js"], function ($, msgbox, login,cryptojs)
+    {
+        $(function ()
+        {
+            $("#usercode").focus();
+            document.onkeydown = function (e)
+            {
+                var ev = document.all ? window.event : e;
+                if (ev.keyCode == 13)
+                    usersubmit();
+            }
+            $(".tab li").hover(function () {
+                $(this).siblings().removeClass('on');
+                $(this).addClass("on");
+                var li_index = $(this).index();
+
+                $(this).parent().parent().find('.bd').hide().eq(li_index).show();
+            });
+
+            $("#ptjh ul li a").mouseover(function ()
+            {
+                $(".big").find("img").attr("src", "/stpmmp/front/images/index/" + $(".big").attr("tag") + ".gif");
+                $(".big").attr("class", " ");
+                $(this).attr("class", "big");
+                $(this).find("img").attr("src", "/stpmmp/front/images/index/" + $(this).attr("tag") + "g.gif");
+            });
+        });
+        clickFlag = false;
+        function usersubmit() {
+            var user_code = $("#usercode").val();
+            var regex = /^[0-9A-Za-z_]{3,20}$/;
+            if (clickFlag)
+                return false;
+
+            if (($.trim($("#userkeynew").val()) === ""))
+            {
+                alert('密码不能为空');
+                $("#userkeynew").focus();
+                return false;
+            }
+            
+            
+            $.get("/stpmmp/ssoLogin/akey",{},function(data)
+                {
+                  var key = cryptojs.enc.Utf8.parse(data);     
+                  var bytes = cryptojs.AES.encrypt($.trim($("#userkeynew").val()),key,{iv:key,mode:cryptojs.mode.CBC}) ;
+                  
+                  $("#userkey").val(bytes.ciphertext.toString());
+                  
+                
+                 
+                  clickFlag = true;
+            msgbox.alert({url: "/stpmmp/ssoLogin/loginSubmit"},
+            function () {
+
+                msgbox.close();
+
+//                    alert(msgbox.messageCode);
+                if (msgbox.messageCode == "0")
+                {
+                    window.location.href = "/stpmmp/front/?html=index";
+                } else if (msgbox.messageCode == "1") {
+
+                    window.location.href = "/stpmmp/front/?html=modifypassword&paras=" + user_code;
+                }
+            }, function () {
+                msgbox.close();
+                if (msgbox.messageCode == "3")
+                {
+                    window.location.href = "/stpmmp/";
+                }
+            }, function () {
+                msgbox.close();
+                if (msgbox.messageCode == "2")
+                {
+                    var obt = document.getElementById("img_validatecode");
+                    obt.click();
+                }
+            });
+                    //alert(msgbox.messageCode);
+                    if (msgbox.messageCode == "0")
+                    {  
+                        window.location.href = "/stpmmp/front/?html=index";
+                    }else if(msgbox.messageCode == "1"){
+                        window.location.href = "/stpmmp/front/?html=modifypassword&paras="+user_code;
+                    }else if (msgbox.messageCode == "2"){
+                        $('#img_validatecode').attr("src", '/stpmmp/ssoLogin/validatecode/' + new Date().getTime());
+                    }else if (msgbox.messageCode == "3"){
+                        window.location.href = "/stpmmp/";
+                    }else{
+                        $('#img_validatecode').attr("src", '/stpmmp/ssoLogin/validatecode/' + new Date().getTime());
+                    }    
+            clickFlag = false;
+                 
+                });
+            
+            
+            
+            
+            
+            
+        }
+        function userregist() {
+            window.location.href = "/stpmmp/ssoLogin/registselect?backurl=&backurl2=";
+        }
+
+        function hqsjyzm(object) {
+
+
+            var usermobile = $('#usermobile').val();
+              if(usermobile == "手机号码" || usermobile == ""){
+                alert("手机号不能为空");
+                return;
+            }
+            if (($('#yzmjy').val()) !== "") {
+
+                //后台去校验手机号码并发送短信
+                $.ajax({
+                    type: "get",
+                    url: "/stpmmp/front/sjyzm/" + usermobile,
+                    dataType: "html",
+                    error: function (data) {
+                        alert(data);
+                        return;
+                    },
+                    success: function (data) {
+                        var strs = data.substr(0,1);
+                    
+                        if(strs === "1"){
+                             time(object);
+                        $("#sjyzm").css("background-color", "#ccc");
+                        $("#yzmjy").val("");
+                            alert(data.substr(1,data.length-1));
+                        
+                        
+                        }else{
+                            
+                             alert("验证码获取失败");
+                        }
+                        
+                        
+                    }
+
+                });
+            } else {
+                alert("完成滑动验证后才可获取验证码。");
+
+
+            }
+
+
+        }
+        
+        function sjsubmit(){
+            
+            var user_code = $("#usermobile").val();
+            var sjyzm = $("#sjvalidatecode").val();
+
+            msgbox.alert({url: "/stpmmp/front/sjlogin/" +user_code + "-" + sjyzm},
+            function () {
+
+                msgbox.close();
+
+                if (msgbox.messageCode == "0")
+                {
+                    window.location.href = "/stpmmp/front/?html=index";
+                }
+            });
+
+            clickFlag = false;
+            
+        }
+        
+
+        var wait = 300;
+        function time(object) {
+
+            if (wait === 0) {
+                object.removeAttribute("disabled");
+                object.value = "获取验证码";
+                wait = 300;
+                $("#sjyzm").css("background-color", "");
+                $("#mpanel1").empty();
+                cks();
+            } else {
+                object.setAttribute("disabled", true);
+                wait--;
+                object.value = wait + "秒后重新发送";
+                setTimeout(function () {
+                    time(object)
+                }, 1000);
+            }
+        }
+
+        window.sjsubmit = sjsubmit;
+        window.hqsjyzm = hqsjyzm;
+        window.userregist = userregist;
+        window.usersubmit = usersubmit;
+        window.refreshValidateCode = login.refreshValidateCode;
+    });
+</script>
+        <script type="text/javascript" src="/stpmmp/front/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/stpmmp/front/js/homePage.js"></script>
+        <script type="text/javascript" src="/stpmmp/front/js/floatJs.js"></script>
+        <script type="text/javascript" src="/stpmmp/front/js/floatJs2.js"></script>
+        <script type="text/javascript" src="/stpmmp/front/js/carousel.js"></script>
+        <script type="text/javascript" src="/stpmmp/front/js/html5media.min.js"></script>
+        <script type="text/javascript" src="/stpmmp/front/js/jquery.bay-window.js"></script>
+        <script type="text/javascript" src="/stpmmp/front/js/verify.js"></script>
+<link href="/stpmmp/front/css/css_index/carousel.css" type="text/css" rel="stylesheet"  /><link href="/stpmmp/front/css/verify.css" type="text/css" rel="stylesheet"  />
+
+        <script type="text/javascript">
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?cf351c919348153cad7c3f74371e6481";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+            </script>
+        <script type="text/javascript">
+            function subgo(flag) {
+                if (flag == 1) {
+                    parent.location.href = '/stpmmp/news/news/144-关于我们';
+                } else if (flag == 2) {
+                    parent.location.href = '/stpmmp/news/news/161-联系我们';
+                } else if (flag == 3) {
+                    parent.location.href = '/stpmmp/news?id=xgys&name=系统使用说明';
+                } else if (flag == 4) {
+                    parent.location.href = '/stpmmp/news/news/162-网站地图';
+                } else if (flag == 5) {
+
+                    var id = document.getElementById('searchresult').value;
+                    var name = '检索结果';
+                    parent.location.href = '/stpmmp/asearchNews?id=' + id + '&name=' + name;
+
+                } else {
+                    var id = document.getElementById('lmss').value;
+                    var name = '检索结果';
+                    parent.location.href = '/stpmmp/asearchNews?id=' + id + '&name=' + name;
+                }
+            }
+            function changeBG(o) {
+                o.style.backgroundColor = "#00479D";
+            }
+            function changeBG2(o) {
+                o.style.backgroundColor = "";
+            }
+            window.onload = function ()
+            {
+                var oTab = document.getElementById("cen_right_top");
+                var aH3 = oTab.getElementsByTagName("h3");
+                var aDiv = oTab.getElementsByTagName("div");
+                for (var i = 0; i < aH3.length; i++)
+                {
+                    aH3[i].index = i;
+                    aH3[i].onclick = function ()
+                    {
+                        for (var i = 0; i < aH3.length; i++)
+                        {
+                            aH3[i].className = "";
+                            aDiv[i].style.display = "none";
+                        }
+                        this.className = "active";
+                        aDiv[this.index].style.display = "block";
+                    }
+                }
+            }
+
+
+
+        </script>
+
+
+        <style type="text/css">
+            /* 给飘窗添加一些基础样式，如宽度，高度和背景颜色等等 */
+            #bay{
+                width: 400px;
+                height: 250px;
+                position: absolute; 
+                z-index: 10;
+            }
+            #cen_right_top{
+                width:358px;
+                margin:0 auto;
+                height: 320px;
+                overflow: hidden;
+            }
+            #cen_right_top .active{
+                color:#c00;
+                background-color:#fff;
+            }
+            #cen_right_top h3{
+                line-height:50px;
+                text-align:center;
+                display:inline-block;
+                height:50px;
+                width:176px;
+                margin:0px;
+                padding:0px;
+                background-color:#F3F3F3;
+                font-size:15px;
+                font-weight:900;
+                color:#333333;
+                cursor:pointer;
+            }
+            #cen_right_top div{
+                font-size: 14px;
+                border-top-color: #0E5FB9;
+                display: block;
+            }
+
+        </style>
+    </head>
+
+
+    <body style="">
+﻿
+    <div class="head1"> 
+                <img src="/stpmmp/front/images/images_index/logo.png" class="img1"  /><img src="/stpmmp/front/images/images_index/title.png" class="img2"  />		<table style="float: right;margin-right:55;margin-top:22px;">
+			<tr>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<span class="top_text" style="margin-top:50px;margin-right:0px;">
+						<input name="" type="text" id="searchresult" style="border: 1px solid #999;margin-top:0px;margin-right:0px; color:#999999;width: 400px;height:25px;" value=""/>	
+                                                
+                                                <a href="javascript:void(0)" onclick="subgo(5)" ><img src="/stpmmp/front/images/images_index/search.png" style="width:18px; height:14px; margin-top:0px;margin-right:0px;"/></a>	
+					</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="width:1200px;background-color:#0E5FB9;margin: 0 auto;">
+		<div class="mainwidth" style="margin-top:0px;height:50px;overflow:hidden;">
+			<div class="toplink" href="#" onclick="parent.location.href='/stpmmp/';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">首　页</div>
+<!--                    
+                        <div class="toplink" onclick="parent.location.href='http://localhost:8080/stpmmp/news?id='+'tzgg&name='+'通知公告';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">通知公告</div>
+			<div class="toplink" onclick="parent.location.href='http://localhost:8080/stpmmp/news?id='+'sbzn&name='+'申报指南';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">申报指南</div>
+			<div class="toplink" onclick="parent.location.href='http://localhost:8080/stpmmp/news?id='+'xxgs&name='+'信息公示';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">信息公示</div>
+			<div class="toplink" onclick="parent.location.href='http://localhost:8080/stpmmp/news?id='+'zcwj&name='+'政策法规';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">政策法规</div>
+			<div class="toplink" onclick="window.open('http://218.26.227.179/stpmmp/front/login');" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">科技计划</div>
+			<div class="toplink" onclick="window.open('http://218.26.227.179/328/web/index.html');" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">成果转化</div>
+			<div class="toplink" onclick="window.open('http://218.26.227.129:111888/kjzykfgx');" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">科技资源</div>
+                        <div class="toplink" onclick="window.open('http://218.26.177.53/');" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">科技报告</div>
+                        <div class="toplink" onclick="" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">高新企业</div>
+			-->
+                        
+                            <div class="toplink" onclick="parent.location.href='/stpmmp/news/?id=tzgg&name=通知公告';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">通知公告</div>
+                            <div class="toplink" onclick="parent.location.href='/stpmmp/news/?id=sbzn&name=申报指南';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">申报指南</div>
+                            <div class="toplink" onclick="parent.location.href='/stpmmp/news/?id=xxgs&name=信息公示';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">信息公示</div>
+                            <div class="toplink" onclick="parent.location.href='/stpmmp/news/?id=zcwj&name=政策文件';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">政策文件</div>
+                        <div class="toplink" onclick="parent.location.href='https://218.26.228.127:8443/stpmmp/ssoLogin/login'" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">科技计划</div>
+                        <div class="toplink" onclick="parent.location.href='http://www.kj15331.com'" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">成果转化</div>
+                        <div class="toplink" onclick="parent.location.href='https://218.26.228.127:8443/kjzykfgx'" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">科技资源</div>
+                        <div class="toplink" onclick="parent.location.href='http://218.26.228.143:11188/'" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">科技报告</div>
+                                 <div class="toplink" onclick="parent.location.href='http://218.26.228.129:11188/301/?sxgctargetpage=qy';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">高新企业</div>
+                                
+                            <div class="toplink" onclick="parent.location.href='/stpmmp/news/?id=bslc&name=服务手册';" onmouseover="changeBG(this)" onmouseout="changeBG2(this)">服务手册</div>
+		</div>
+	</div>
+
+        <div style="width:1200px; height:325px; margin:0 auto;background-color:#ffffff; background-image:url(/stpmmp/front/images/images_index/6.png);background-position:bottom; background-repeat:no-repeat;">
+            <div class="container">
+                <div class="pictureSlider poster-main" data-setting='{"width":1200,"height":306,"posterWidth":640,"posterHeight":306,"scale":0.8,"autoPlay":true,"delay":5000,"speed":800}'>
+                    <div class="poster-btn poster-prev-btn"></div>
+                    <ul class="poster-list">
+                        <li class="poster-item"><a href="https://218.26.228.127:8443/stpmmp/ssoLogin/login"><img src="/stpmmp/front/images/images_index/1.png" width="100%" height="100%"  /></a></a></li>
+                        <li class="poster-item"><a href="http://www.kj15331.com"><img src="/stpmmp/front/images/images_index/2.png" width="100%" height="100%"  /></a></a></li>
+                        <li class="poster-item"><a href="https://218.26.228.127:8443/kjzykfgx"><img src="/stpmmp/front/images/images_index/3.png" width="100%" height="100%"  /></a></a></li>
+                        <li class="poster-item"><a href="http://218.26.228.143:11188/"><img src="/stpmmp/front/images/images_index/4.png" width="100%" height="100%"  /></a></a></li>
+                        <li class="poster-item"><a href="http://218.26.228.129:11188/301/?sxgctargetpage=qy"><img src="/stpmmp/front/images/images_index/5.png" width="100%" height="100%"  /></a></a></li>
+                        <li class="poster-item"><a href="http://www.kj15331.com/328/web/index1.html#"><img src="/stpmmp/front/images/images_index/66.png" width="100%" height="100%"  /></a></a></li>
+                    </ul>
+                    <div class="poster-btn poster-next-btn"></div>
+                </div>
+            </div>
+        </div> 
+
+
+        <script>
+            $(function () {
+                Carousel.init($(".pictureSlider"));
+            });
+        </script>
+        <!-- 首页图片 通知公告 平台登录 -->
+        <div style="width:1200px;margin: 0 auto; margin-top:20px;padding: 0px;">
+            <div class="plate_structure_style" style="height:360px;">
+                <div class="slide_container" style="width:360px;height:180px;">
+                    <ul class="rslides" id="slider2">
+
+
+                        <li class="li_style">
+                            <img src="/stpmmp/kduf/20190516/1557972770319.png" alt="" /><br />
+
+                            <a href="/stpmmp/news/news/559-图片新闻" class="mcFont2">
+                                <span class="news_tit">
+                                </span></a>
+                        </li>
+                        <li class="li_style">
+                            <img src="/stpmmp/kduf/20190516/1557972570075.png" alt="" /><br />
+
+                            <a href="/stpmmp/news/news/557-图片新闻" class="mcFont2">
+                                <span class="news_tit">
+                                </span></a>
+                        </li>
+                        <li class="li_style">
+                            <img src="/stpmmp/kduf/20190516/1557972554123.png" alt="" /><br />
+
+                            <a href="/stpmmp/news/news/558-图片新闻" class="mcFont2">
+                                <span class="news_tit">
+                                </span></a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+
+
+
+                <script type="text/javascript" src="/stpmmp/front/js/jquery.yx_rotaion.js"></script>
+                <script type="text/javascript">
+            $(".yx-rotaion").yx_rotaion({auto: true});
+                </script>
+                <div class="important_news" >	
+                    <ul class="newslist">
+                        <li><a href="/stpmmp/news/news/559-图片新闻" title="省科技厅召开2019年党的建设和党风廉政建设工作会议" class="title">省科技厅召开2019年党的建设和党风廉政建设工作会议</a>
+                            <span class="date">03月25日</span></li>
+                        <li><a href="/stpmmp/news/news/557-图片新闻" title="中共山西省科技类民办非企业行业党委召开“改革创新、奋发有为”大讨论动员部署暨培训会" class="title">中共山西省科技类民办非企业行业党委召开“改革创新、奋发有为”大讨论动员部署暨培训会</a>
+                            <span class="date">03月15日</span></li>
+                        <li><a href="/stpmmp/news/news/558-图片新闻" title="省科技厅系统“改革创新、奋发有为”大讨论动员部署会召开" class="title">省科技厅系统“改革创新、奋发有为”大讨论动员部署会召开</a>
+                            <span class="date">02月15日</span></li>
+                    </ul>  
+                </div>
+
+
+            </div>
+            <div class="plate_structure_style" style="background-color:#ffffff; height:360px;">
+                <HR width="358px" color=#0E5FB9 SIZE=10 />
+                <div class="">
+                    <button id="button1"  onclick="parent.location.href = '/stpmmp/news?id=' + 'tzgg&name=' + '通知公告';" onMouseOver="getDivBlock('1')" onClick="getDivBlock('1')" style="float: left;height:35px;display: block;vertical-align: middle;width:90px; background-color:#F8F8F8; color:#000000;font-weight:400; font-size:16px; border:1px solid #E0EAF5; border-top:0px;">通知公告</button>
+
+                    <button id="button2"  onclick="parent.location.href = '/stpmmp/news?id=' + 'sbzn&name=' + '申报指南';" onMouseOver="getDivBlock('2')" onClick="getDivBlock('2')" style="float: left;height:35px;display: block;vertical-align: middle;width:90px; background-color:#F8F8F8; color:#000000;font-weight:400; font-size:16px; border:1px solid #E0EAF5; border-top:0px;">申报指南</button>
+
+                    <button id="button3"  onclick="parent.location.href = '/stpmmp/news?id=' + 'zcwj&name=' + '政策法规';" onMouseOver="getDivBlock('3')" onClick="getDivBlock('3')" style="float: left;height:35px;display: block;vertical-align: middle;width:90px; background-color:#F8F8F8; color:#000000;font-weight:400; font-size:16px; border:1px solid #E0EAF5; border-top:0px;">政策法规</button>
+
+                    <button id="button4"  onclick="parent.location.href = '/stpmmp/news?id=' + 'bslc&name=' + '服务手册';" onMouseOver="getDivBlock('4')" onClick="getDivBlock('4')" style="float: left;height:35px;display: block;vertical-align: middle;width:90px; background-color:#F8F8F8; color:#000000;font-weight:400; font-size:16px; border:1px solid #E0EAF5; border-top:0px;">服务手册</button>
+                </div>
+                <div class="important_news" id="notice" style="margin-top:24px;">
+                    <ul class="newslist">
+                        <li><a href="/stpmmp/news/news/681-通知公告" title="关于组织开展2020年度科技成果登记统计工作的通知" class="title">关于组织开展2020年度科技成果登记统计工作的通知</a>
+                            <span class="date">01月07日</span></li>
+                        <li><a href="/stpmmp/news/news/680-通知公告" title="关于组织申报山西省中试基地的预通知" class="title">关于组织申报山西省中试基地的预通知</a>
+                            <span class="date">11月07日</span></li>
+                        <li><a href="/stpmmp/news/news/678-通知公告" title="山西省科学技术厅 山西省财政厅关于研究开发机构和高等院校报送2019年度科技成果转化年度报告工作有关事项的通知" class="title">山西省科学技术厅 山西省财政厅关于研究开发机构和高等院校报送2019年度科技成果转化年度报告工作有关事项的通知</a>
+                            <span class="date">08月21日</span></li>
+                        <li><a href="/stpmmp/news/news/672-通知公告" title="关于组织参加第二十三届北京国际科技产业博览会的通知" class="title">关于组织参加第二十三届北京国际科技产业博览会的通知</a>
+                            <span class="date">08月12日</span></li>
+                        <li><a href="/stpmmp/news/news/673-通知公告" title="关于组织参加第三届 中国国际进口博览会的通知" class="title">关于组织参加第三届 中国国际进口博览会的通知</a>
+                            <span class="date">08月12日</span></li>
+                        <li><a href="/stpmmp/news/news/674-通知公告" title="关于申报2020年度“三区”科技人才 支持计划（第二批）的通知" class="title">关于申报2020年度“三区”科技人才 支持计划（第二批）的通知</a>
+                            <span class="date">08月12日</span></li>
+                        <li><a href="/stpmmp/news/news/675-通知公告" title="关于举办2020年科技活动周的通知" class="title">关于举办2020年科技活动周的通知</a>
+                            <span class="date">08月11日</span></li>
+                        <li><a href="/stpmmp/news/news/676-通知公告" title="关于对山西省2020年第二批拟更名高新技术企业名单的公示" class="title">关于对山西省2020年第二批拟更名高新技术企业名单的公示</a>
+                            <span class="date">07月30日</span></li>
+                    </ul>                            
+
+                </div>
+
+                <div class="important_news" id="apply" style="margin-top:24px; display:none;">                 
+                    <ul class="newslist">
+                        <li><a href="/stpmmp/news/news/684-申报指南" title="关于申报山西省重点研发计划 基础研究计划（新冠肺炎疫情防控专项）的通知" class="title">关于申报山西省重点研发计划 基础研究计划（新冠肺炎疫情防控专项）的通知</a>
+                            <span class="date">05月17日</span></li>
+                        <li><a href="/stpmmp/news/news/682-申报指南" title="关于组织申报2021年度山西省基础研究计划（自由探索类）项目的通知" class="title">关于组织申报2021年度山西省基础研究计划（自由探索类）项目的通知</a>
+                            <span class="date">04月30日</span></li>
+                        <li><a href="/stpmmp/news/news/683-申报指南" title="关于组织申报2021年度山西省重点实验室的通知" class="title">关于组织申报2021年度山西省重点实验室的通知</a>
+                            <span class="date">04月13日</span></li>
+                        <li><a href="/stpmmp/news/news/653-申报指南" title="关于申报2020年山西省中央引导地方科技发展资金项目的通知" class="title">关于申报2020年山西省中央引导地方科技发展资金项目的通知</a>
+                            <span class="date">03月13日</span></li>
+                        <li><a href="/stpmmp/news/news/649-申报指南" title="关于申报促进科技成果转化和产业化相关奖补资金的通知" class="title">关于申报促进科技成果转化和产业化相关奖补资金的通知</a>
+                            <span class="date">03月06日</span></li>
+                        <li><a href="/stpmmp/news/news/637-申报指南" title="关于发布2020年度山西省半导体等9个领域关键核心技术和共性技术研发攻关专项申报指南的通知（2020-2）" class="title">关于发布2020年度山西省半导体等9个领域关键核心技术和共性技术研发攻关专项申报指南的通知（2020-2）</a>
+                            <span class="date">02月28日</span></li>
+                        <li><a href="/stpmmp/news/news/639-申报指南" title="2020年山西省深度贫困县科技精准扶贫专项申报指南" class="title">2020年山西省深度贫困县科技精准扶贫专项申报指南</a>
+                            <span class="date">02月28日</span></li>
+                        <li><a href="/stpmmp/news/news/641-申报指南" title="关于申报2020年度山西省农业龙头企业科技研发专项项目的通知" class="title">关于申报2020年度山西省农业龙头企业科技研发专项项目的通知</a>
+                            <span class="date">02月28日</span></li>
+                    </ul>                               
+                </div>
+
+                <div class="important_news" id="policy" style="margin-top:24px; display:none;">                         
+                    <ul class="newslist">
+                        <li><a href="/stpmmp/news/news/513-政策法规" title="山西省科学技术厅关于印发《山西省省级财政科技计划（专项、基金等）项目管理专业机构管理暂行规定》的通知" class="title">山西省科学技术厅关于印发《山西省省级财政科技计划（专项、基金等）项目管理专业机构管理暂行规定》的通知</a>
+                            <span class="date">12月28日</span></li>
+                        <li><a href="/stpmmp/news/news/514-政策法规" title="山西省人民政府办公厅关于印发山西省科技重大专项管理办法的通知" class="title">山西省人民政府办公厅关于印发山西省科技重大专项管理办法的通知</a>
+                            <span class="date">01月02日</span></li>
+                        <li><a href="/stpmmp/news/news/280-政策法规" title="山西省科技计划（专项、基金等）管理厅际联系会议制度" class="title">山西省科技计划（专项、基金等）管理厅际联系会议制度</a>
+                            <span class="date">08月14日</span></li>
+                        <li><a href="/stpmmp/news/news/281-政策法规" title="山西省科研项目经费和科技活动经费管理办法（试行）" class="title">山西省科研项目经费和科技活动经费管理办法（试行）</a>
+                            <span class="date">08月14日</span></li>
+                        <li><a href="/stpmmp/news/news/282-政策法规" title="山西省科研项目经费和科技活动经费管理办法（试行）补充规定" class="title">山西省科研项目经费和科技活动经费管理办法（试行）补充规定</a>
+                            <span class="date">08月14日</span></li>
+                        <li><a href="/stpmmp/news/news/283-政策法规" title="山西省深化省级财政科技计划（专项、基金等）管理改革方案" class="title">山西省深化省级财政科技计划（专项、基金等）管理改革方案</a>
+                            <span class="date">08月14日</span></li>
+                        <li><a href="/stpmmp/news/news/284-政策法规" title="山西省省级财政科研项目和资金管理办法（试行）" class="title">山西省省级财政科研项目和资金管理办法（试行）</a>
+                            <span class="date">08月14日</span></li>
+                        <li><a href="/stpmmp/news/news/285-政策法规" title="山西省科技计划（专项、基金等）及7个配套专项管理办法" class="title">山西省科技计划（专项、基金等）及7个配套专项管理办法</a>
+                            <span class="date">08月14日</span></li>
+                    </ul>                              
+                </div>
+
+                <div class="important_news" id="work" style="margin-top:24px; display:none;">                            
+                    <ul class="newslist">
+                        <li><a href="/stpmmp/news/news/554-服务手册" title="山西科技报告服务系统之呈交子系统使用手册" class="title">山西科技报告服务系统之呈交子系统使用手册</a>
+                            <span class="date">04月16日</span></li>
+                        <li><a href="/stpmmp/news/news/556-服务手册" title="山西科技资源开放共享管理服务平台（大型科研设施与仪器）" class="title">山西科技资源开放共享管理服务平台（大型科研设施与仪器）</a>
+                            <span class="date">04月08日</span></li>
+                        <li><a href="/stpmmp/news/news/555-服务手册" title="项目结题验收说明书" class="title">项目结题验收说明书</a>
+                            <span class="date">02月13日</span></li>
+                        <li><a href="/stpmmp/news/news/421-服务手册" title="关于山西省科技企业孵化器和众创空间认定在线系统操作说明" class="title">关于山西省科技企业孵化器和众创空间认定在线系统操作说明</a>
+                            <span class="date">06月04日</span></li>
+                        <li><a href="/stpmmp/news/news/422-服务手册" title="关于山西省科技企业孵化器和众创空间年度进展报告在线系统操作说明" class="title">关于山西省科技企业孵化器和众创空间年度进展报告在线系统操作说明</a>
+                            <span class="date">06月04日</span></li>
+                        <li><a href="/stpmmp/news/news/397-服务手册" title="山西科技成果转化和知识产权交易服务平台科技成果登记和子平台建设流程图" class="title">山西科技成果转化和知识产权交易服务平台科技成果登记和子平台建设流程图</a>
+                            <span class="date">03月20日</span></li>
+                        <li><a href="/stpmmp/news/news/358-服务手册" title="企业如何与平台基地合作服务" class="title">企业如何与平台基地合作服务</a>
+                            <span class="date">01月17日</span></li>
+                        <li><a href="/stpmmp/news/news/141-服务手册" title="关于《山西省软科学计划任务书》签订流程" class="title">关于《山西省软科学计划任务书》签订流程</a>
+                            <span class="date">07月26日</span></li>
+                    </ul>                             
+                </div>
+            </div>
+
+
+
+            <!--登录 -->
+
+
+            <div class="plate_structure_style" style="height:360px;">
+                <hr width="358px" color="#0E5FB9" size="10" style="margin:0 auto;">
+                <div id="cen_right_top">
+                    <h3 class="active">账号登录</h3>
+                    <h3>手机验证码登录</h3>
+                    <div style="display:block;">
+                        <form method="post" id="GI_FORM" style="margin-top:20px;">
+                            <table width="320" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2" align="center" class="loginPadding">
+                                            <span>
+                                                <img src="/stpmmp/front/images/images_index/username.png" style="width:37px; height:37px; margin-top:0px;margin-left:0px;"/>	
+                                                <input type="text" name="usercode" id="usercode" class="username_style" value="用户名" onFocus="javascript:if (this.value == '用户名')
+                                                            this.value = '';" onBlur="javascript:if (this.value == '')
+                                                                        this.value = '用户名';"/>
+
+                                            </span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2" align="center" class="loginPadding">
+                                            <span>
+                                                <img src="/stpmmp/front/images/images_index/password.png" style="width:37px; height:37px; margin-top:0px;margin-left:0px;"/>	
+                                                
+                                                <input type="password" name="userkeynew" id="userkeynew" class="username_style" value="密码" onFocus="javascript:if (this.value == '密码')
+                                                            this.value = '';" onBlur="javascript:if (this.value == '')
+                                                                        this.value = '密码';"/>	
+                                                
+                                                <input type="hidden" name="userkey" id="userkey" class="username_style" value="密码" onFocus="javascript:if (this.value == '密码')
+                                                            this.value = '';" onBlur="javascript:if (this.value == '')
+                                                                        this.value = '密码';"/>	
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="loginPadding">
+
+                                            <input name="validatecode" type="text" maxlength="4"  id="validatecode" class="username_style" style="margin-left:4px;width:160px;" value="验证码" onFocus="javascript:if (this.value == '验证码')
+                                                        this.value = '';" onBlur="javascript:if (this.value == '')
+                                                                    this.value = '验证码';"/>
+                                        </td>
+                                        </span>
+                                        <td class="loginPadding"><img src="/stpmmp/ssoLogin/validatecode" id="img_validatecode" 
+                                                                  
+                                                                      alt='刷新' style="width:130px; height:40px; float:right; margin-right:4px;" />	</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" colspan="2">
+                                            <p id="cppidp" style="color:red; font-size: 14px" >五分钟内连续输错密码三次，账号将会被锁定。</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center" class="loginPadding">
+
+                                            <input class='loginButton' style=" width:150px;" type='button' name='' id='' value='登   录' onclick='usersubmit();'/>&nbsp;&nbsp;
+                                            <input class='loginButton' style=" width:150px;" type='button' name='' id='' value='注   册' onclick='userregist();'/>   
+
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" colspan="2">
+                                            <a class="mcFont4" style=" width:150px;font-size:12px;display:inline-block;float:left;font-size:15px;font-weight:800;padding-top:6px;" href="/stpmmp/userPwdInfo/regist/1">找回用户名或密码</a>
+                                            <a class="mcFont4" style=" width:150px;font-size:12px;display:inline-block;float:right;font-size:15px;font-weight:800;padding-top:6px;" href="/stpmmp/userPwdInfo/unlockUserInfo/">账号解锁</a>						
+                                        </td>	
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+
+
+
+
+
+                    <div style="padding-top:20px;position:relative;">
+                        <form method="post" id="GI_FORM_SJDL" style="margin-top: 0px;">
+                            <table width="320" border="0">
+                                <tbody>
+                                    <tr style="height: 56px;">
+                                        <td colspan="2" >
+                                            <span>
+                                                <img src="/stpmmp/front/images/images_index/username.png" style="width:37px; height:37px; margin-top:0px;margin-left:0px;"> 
+                                                <input type="text" name="usermobile" id="usermobile" class="username_style" value="手机号码" onfocus="javascript:if (this.value == '手机号码')
+                                                            this.value = '';" onblur="javascript:if (this.value == '')
+                                                                        this.value = '手机号码';">
+
+                                            </span></td>
+                                    </tr>
+                                    <tr  style=" display: block;height: 56px;">
+                                        <td colspan="2">
+                                            <div id="mpanel1"  style="width:385px" ></div>
+                                        </td>
+                                    </tr>
+
+                                <input type="hidden" id="yzmjy" value="" />
+
+
+
+
+                                <tr>
+                                    <td colspan="2">
+
+                                        <input name="validatecode" type="text" maxlength="10" id="sjvalidatecode" class="username_style" style="margin-left:4px;width:160px;" value="手机验证码" onfocus="javascript:if (this.value == '手机验证码')
+                                                    this.value = '';" onblur="javascript:if (this.value == '')
+                                                                this.value = '手机验证码';">
+                                        <input class="loginButton"  style="width:40%;" type="button" name="sjyzm" id="sjyzm" value="获取验证码" onclick="hqsjyzm(this);">
+
+                                    </td>
+
+
+                                </tr>
+
+                                <tr  style="height: 26px;">
+                                    <td  colspan="2">
+                                        <p id="cppidp" style="color:red; font-size: 14px;margin: 2px 8px -10px;">五分钟内连续输错密码三次，账号将会被锁定。</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" >
+
+                                        <input class="loginButton" style=" width:150px;" type="button" name="" id="" value="登   录" onclick="sjsubmit();">&nbsp;&nbsp;
+                                        <input class="loginButton" style=" width:150px;" type="button" name="" id="" value="注   册" onclick="userregist();">   
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" colspan="2">
+                                        <a class="mcFont4" style=" width:150px;font-size:12px;display:inline-block;float:left;font-size:15px;font-weight:800;padding-top:6px;" href="/stpmmp/userPwdInfo/regist/1">找回用户名或密码</a>
+                                        <a class="mcFont4" style=" width:150px;font-size:12px;display:inline-block;float:left;font-size:15px;font-weight:800;padding-top:6px;" href="/stpmmp/userPwdInfo/unlockUserInfo/">账号解锁</a>      
+                                    </td> 
+                                </tr>
+                                </tbody></table>
+
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+        <div style="width:1200px; height: 205px; margin: 0 auto;padding:0px 20px 25px 20px;">
+                <div style="float:left;width:290px; height:205px;overflow:hidden; background-color:#ffffff;padding-left:0px;border:1px solid #D5E4F4;">
+                        <table width="100%">
+                                <tr>
+                                        <td width="100%" height="40" style="border-right:0px solid #ffffff; padding-right:5px;" background="/stpmmp/front/images/images_index/ss2.png"><a href="/stpmmp/newsZyjg?id=5fc5ce78357940878b7dd3587ec5e996&name=山西省科学技术交流中心" class="mcFont2" style="color:#ffffff; float:right;">>></a></td>
+                                </tr>
+                        </table>
+                        <div class="important_news" style="margin-top:0px;">                          
+                            <ul class="newslist">
+                            </ul>                              
+                        </div>
+                </div>
+
+                <div style="float:left;width:290px; height:205px;overflow:hidden; background-color:#ffffff;padding-left:0px;border:1px solid #D5E4F4;">
+                        <table width="100%">
+                                <tr>
+                                        <td width="100%" height="40" style="border-right:0px solid #ffffff; padding-right:5px;" background="/stpmmp/front/images/images_index/ss4.png"><a href="/stpmmp/newsZyjg?id=3feff9317b894a578e3b28d1a0f6071d&name=山西省科技成果转化服务中心" class="mcFont2" style="color:#ffffff; float:right;">>></a></td>
+                                </tr>
+                        </table>
+                        <div class="important_news" style="margin-top:0px;">                          
+                            <ul class="newslist">
+                            </ul>                              
+                        </div>
+                </div>
+
+                <div style="float:left;width:290px; height:205px;overflow:hidden; background-color:#ffffff;padding-left:0px;border:1px solid #D5E4F4;">
+                        <table width="100%">
+                                <tr>
+                                        <td width="100%" height="40" style="border-right:0px solid #ffffff; padding-right:5px;" background="/stpmmp/front/images/images_index/ss3.png"><a href="/stpmmp/newsZyjg?id=8e535749c13940b4b6a66f656642aff8&name=山西省产业技术发展研究中心" class="mcFont2" style="color:#ffffff; float:right;">>></a></td>
+                                </tr>
+                        </table>
+                        <div class="important_news" style="margin-top:0px;">                          
+                            <ul class="newslist">
+                            </ul>                              
+                        </div>
+                </div>
+
+                <div style="float:left;width:290px; height:205px;overflow:hidden; background-color:#ffffff;padding-left:0px;border:1px solid #D5E4F4;">
+                        <table width="100%">
+                                <tr>
+                                        <td width="100%" height="40" style="border-right:0px solid #ffffff; padding-right:5px;" background="/stpmmp/front/images/images_index/ss1.png"><a href="/stpmmp/newsZyjg?id=864cd730fa0e4264bdc8b8013975bb78&name=山西省农村技术开发中心 " class="mcFont2" style="color:#ffffff; float:right;">>></a></td>
+                                </tr>
+                        </table>
+                        <div class="important_news" style="margin-top:0px;">
+                            <ul class="newslist">
+                            </ul>                              
+                            
+                        </div>
+                     
+                </div>
+                
+                
+                
+        </div>
+
+        <div style="width:1200px;margin: 0 auto; margin-top:390px;"><img src="/stpmmp/front/images/cxq220200318.jpg"  usemap ="#cxqdxyqmap"/></div>
+        
+        <map name="cxqdxyqmap">
+            <area shape="rect" coords="0,0,400,120" href="http://218.26.228.129:11188/subplat/" alt="大仪平台" />
+            <area shape="rect" coords="401,0,800,120" href="http://218.26.228.127:11188/inno" alt="创新券平台" />
+            <area shape="rect" coords="801,0,1200,120" href="http://www.kj15331.com/328/web/index1.html" alt="企业技术需求" />
+        </map>
+        <!-- 科技资源分布图等 -->
+        <div style="width:1200px;margin: 0 auto; margin-top:20px;">
+            <!-- 科技资源分布图 -->
+            <div class="plate_structure_style2">
+                <div class="important_news">
+                    <a class="mcFont5" href="#">科技资源分布图 ></a>
+                </div>
+                <div class="important_news" style="border:1px solid #D5E4F4; padding-top:0px; padding-bottom:0px;">
+                    <img class="img4" style="width:320px; height:auto; margin-top:0px; margin-bottom:0px;" src="/stpmmp/front/images/images_index/sxmap.png"/>
+                </div>
+            </div>
+            <!-- 科技计划专栏 -->
+            <div class="plate_structure_style2">
+                <div class="important_news">
+                    <a class="mcFont5" href="#">科技专栏 ></a>
+                </div>
+                <HR width="358px" color=#E6EFF8 SIZE=10 />
+                <div>
+                    <!-- sys1 ------------------------------------------------------------------------- -->
+                    <div style="padding-top:0px;">
+                        <table width="100%">
+                            <tr>
+                                <td width="30%"><img class="img5" src="/stpmmp/front/images/images_index/sys1.png"/></td>
+                                <td width="60%"><a class="mcFont2" style="color:#000000; font-family:SimHei; font-size:18px;" >山西科技计划管<br />理信息平台</a></td>
+                                <td width="10%" valign="bottom" style="padding-bottom:5px;"><a href="/stpmmp/news?id=kjjh&name=山西科技计划管理信息平台"><span class="mcFont3 li_stylebak">more</span></a></td>
+                            </tr>
+                        </table>
+                        <ul class="newslist1">
+                            <li><a href="/stpmmp/news/news/561-山西科技计划管理信息平台" title="关于征集2019年度山西省重点研发计划（高新）项目申报指南建议通知" class="title">关于征集2019年度山西省重点研发计划（高新）项目申报指南建议通知</a>
+                                <span class="date">02月11日</span></li>
+                            <li><a href="/stpmmp/news/news/562-山西科技计划管理信息平台" title="关于征集2019年度山西省重点研发计划（社会发展领域）项目申报指南建议的通知" class="title">关于征集2019年度山西省重点研发计划（社会发展领域）项目申报指南建议的通知</a>
+                                <span class="date">02月11日</span></li>
+                            <li><a href="/stpmmp/news/news/560-山西科技计划管理信息平台" title="关于征集2019年度山西省平台基地和人才专项优秀人才科技创新项目申报指南建议的通知" class="title">关于征集2019年度山西省平台基地和人才专项优秀人才科技创新项目申报指南建议的通知</a>
+                                <span class="date">01月31日</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- sys2 ------------------------------------------------------------------------- -->
+                    <div>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%"><img class="img5" src="/stpmmp/front/images/images_index/sys2.png"/></td>
+                                <td width="60%"><a class="mcFont2" style="color:#000000; font-family:SimHei; font-size:18px;" >山西科技成果转<br />化和知识产权交<br />易管理服务平台</a></td>
+                                <td width="10%" valign="bottom" style="padding-bottom:5px;"><a  href="/stpmmp/news?id=kfgx&name=山西科技成果转化和知识产权交易管理服务平台"><span class="mcFont3 li_stylebak">more</span></a></td>
+                            </tr>
+                        </table>
+
+                        <ul class="newslist1">
+                            <li><a href="/stpmmp/news/news/563-山西科技成果转化和知识产权交易管理服务平台" title="《山西省科技成果转化示范基地和示范企业管理办法（试行）》正式实施" class="title">《山西省科技成果转化示范基地和示范企业管理办法（试行）》正式实施</a>
+                                <span class="date">05月13日</span></li>
+                            <li><a href="/stpmmp/news/news/399-山西科技成果转化和知识产权交易管理服务平台" title="山西科技成果转化和知识产权交易服务平台子平台设立申请流程" class="title">山西科技成果转化和知识产权交易服务平台子平台设立申请流程</a>
+                                <span class="date">03月23日</span></li>
+                            <li><a href="/stpmmp/news/news/395-山西科技成果转化和知识产权交易管理服务平台" title="山西科技成果转化和知识产权交易服务平台科技成果登记和子平台建设流程图" class="title">山西科技成果转化和知识产权交易服务平台科技成果登记和子平台建设流程图</a>
+                                <span class="date">03月20日</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- sys3 ------------------------------------------------------------------------- -->
+                    <div>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%"><img class="img5" src="/stpmmp/front/images/images_index/sys3.png"/></td>
+                                <td width="60%"><a class="mcFont2" style="color:#000000; font-family:SimHei; font-size:18px;" >山西科技资源开<br />放共享管理服务<br />平台</a></td>
+                                <td width="10%" valign="bottom" style="padding-bottom:5px;"><a  href="/stpmmp/news?id=kjcg&name=山西科技资源开放共享管理服务平台"><span class="mcFont3 li_stylebak">more</span></a></td>
+                            </tr>
+                        </table>
+
+                        <ul class="newslist1">
+                            <li><a href="/stpmmp/news/news/200-山西科技资源开放共享管理服务平台" title="山西省大型科学仪器共享目录（2015年度）" class="title">山西省大型科学仪器共享目录（2015年度）</a>
+                                <span class="date">10月31日</span></li>
+                            <li><a href="/stpmmp/news/news/156-山西科技资源开放共享管理服务平台" title="科技厅加快推进科技资源开放共享网络管理服务平台和科技创新券管理系统建设" class="title">科技厅加快推进科技资源开放共享网络管理服务平台和科技创新券管理系统建设</a>
+                                <span class="date">08月01日</span></li>
+                            <li><a href="/stpmmp/news/news/154-山西科技资源开放共享管理服务平台" title="苏广宇副巡视员带队赴北京商洽科技资源开放共享服务平台建设并签署相关合作协议" class="title">苏广宇副巡视员带队赴北京商洽科技资源开放共享服务平台建设并签署相关合作协议</a>
+                                <span class="date">04月13日</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 成果展示 在线咨询 -->
+            <div class="plate_structure_style2">
+                <div class="important_news">
+                    <a class="mcFont5" href="#">成果展示 ></a>
+                </div>
+
+
+                <div class="slide_container" style="width:360px;">
+                    <ul class="rslides" id="slider">
+                        <li>
+                            <img src="/stpmmp/front/images/images_index/mobile0623_1.jpg" alt="" style="width:360px; height:210px;">
+                            <p class="caption" style="width:360px;">01</p>
+                        </li>
+                        <li>
+                            <img src="/stpmmp/front/images/images_index/mobile0623_2.jpg" alt="" style="width:360px; height:210px;">
+                            <p class="caption" style="width:360px;">02</p>
+                        </li>
+                        <li>
+                            <img src="/stpmmp/front/images/images_index/mobile0623_3.jpg" alt="" style="width:360px; height:210px;">
+                            <p class="caption" style="width:360px;">实用新型专利</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <script type="text/javascript" src="/stpmmp/front/js/responsiveslides.min.js"></script>
+                <script>
+                                            $("#slider").responsiveSlides({
+                                                auto: true,
+                                                pager: false,
+                                                nav: true,
+                                                speed: 500,
+                                                // 对应外层div的class : slide_container
+                                                namespace: "slide"
+                                            });
+                                            $("#slider2").responsiveSlides({
+                                                auto: true,
+                                                pager: false,
+                                                nav: true,
+                                                speed: 500,
+                                                // 对应外层div的class : slide_container
+                                                namespace: "slide"
+                                            });
+                </script>
+
+                <div class="important_news">
+                    <a class="mcFont5" href="#">相关系统 ></a>
+
+                </div>
+                <HR width="358px" color=#E6EFF8 SIZE=10 />
+                <div class="important_news">
+
+                    <table width="100%">
+                       <!--  <tr>
+                            <td style="padding-top:10px;"></td><td><a href="#" class="mcFont2">1、山西省科技专家信息管理系统</a></td>
+                        </tr>-->
+                        <tr>
+                            <td style="padding-top:10px;"></td><td><a href="http://218.26.228.127:11188/inno/" class="mcFont2" style="vertical-align:top;">1、山西省科技创新券管理服务系统</a></td>
+                        </tr>
+
+                   <!--      <tr>
+                            <td style="padding-top:10px;"></td><td><a href="http://218.26.228.127:11188/zyjg" class="mcFont2">3、专业机构管理信息系统</a></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top:10px;"></td><td><a href="http://124.207.169.16/Home/Index.aspx" class="mcFont2" style="vertical-align:top;">4、地方科技基础条件资源调查管理信息系统</a></td>
+                        </tr> -->
+                        <tr>
+                            <td style="padding-top:10px;"></td><td><a href="http://221.204.237.60/sxzxfwpt/" class="mcFont2" style="vertical-align:top;">2、在线服务平台群</a></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-top:10px;"></td><td><a href="http://www.kj15331.com" class="mcFont2" style="vertical-align:top;">3、科技成果转化和知识产权交易服务平台</a></td>
+                        </tr>                                      
+
+                        <tr>
+                            <td style="padding-top:10px;"></td><td><a href="http://221.204.237.60/zyg/index1.jsp" class="mcFont2" style="vertical-align:top;">4、山西省食品药品检验所中药材标本馆</a></td>
+                        </tr>   
+                    </table>  
+
+
+                </div>
+            </div>
+        </div>
+        <!-- 在线路演 -->
+        <div style="width:1200px;margin: 0 auto;height:440px;">
+            <div class="plate_structure_style2" style="width:1200px; height:440px;">
+                <div class="important_news">
+                    <a class="mcFont5" href="#">在线路演 ></a>
+                </div>
+                <HR width="1000px" color=#DFEAF7 SIZE=10 style=" margin-bottom:10px;"/>
+                <table width="1160px" height="320px;">
+                    <tr>
+                        <td style="width:450px; background-color:#ffffff" align="right">
+
+                            <div class="slide_container" style="width:500px;">
+
+                                <video src="/stpmmp/front/images/images_index/1.mp4" controls="controls" width="490">
+                                    您的浏览器不支持视频播放
+                                </video>
+                            </div>
+                        </td>
+                        <td valign="top" align="right">
+                            <table>
+                                <tr height="50%">
+                                    <td valign="top">
+                                        <span>
+                                            <table style="height:130px; width:210px;">
+                                                <tr>
+                                                    <td align="left"><a href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709221756126903475625236&shi=&xian=" target="_blank"><img class="img5" src="/stpmmp/front/images/images_index/onlineShow1.png" style="height:105px; width:200px;"/></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709221756126903475625236&shi=&xian=" target="_blank">玉米新品种大丰30示范与推广</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" style="color:#666666;"  href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709221756126903475625236&shi=&xian=" target="_blank">该项目总投资750万元。其中…</a></td>
+                                                </tr>
+                                            </table>
+                                        </span>
+                                    </td>
+                                    <td valign="top">
+                                        <span>
+                                            <table style="height:130px; width:210px;">
+                                                <tr>
+                                                    <td align="left"><a href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709211714326109818386970&shi=&xian=" target="_blank"><img class="img5" src="/stpmmp/front/images/images_index/onlineShow2.png" style="height:105px; width:200px;"/></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709211714326109818386970&shi=&xian=" target="_blank">苹果综合加工关键技术研究…</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" style="color:#666666;" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709211714326109818386970&shi=&xian=" target="_blank">山西顶吉食品开发有限公司…</a></td>
+                                                </tr>
+                                            </table>
+                                        </span>
+                                    </td>
+                                    <td valign="top">
+                                        <span>
+                                            <table style="height:130px; width:210px;">
+                                                <tr>
+                                                    <td align="left"><a href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709221007127602088203985&shi=&xian=" target="_blank"><img class="img5" src="/stpmmp/front/images/images_index/onlineShow3.png" style="height:105px; width:200px;"/></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709221007127602088203985&shi=&xian=" target="_blank">高压柱塞泵核心技术及其产…</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" style="color:#666666;" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709221007127602088203985&shi=&xian=" target="_blank">该项目通过与德国Hydrive …</a></td>
+                                                </tr>
+                                            </table>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr style="height:10px;">
+                                    <td colspan="3">&nbsp;
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>
+                                            <table style="height:130px; width:210px;">
+                                                <tr>
+                                                    <td align="left"><a href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709211606067709326339124&shi=&xian=" target="_blank"><img class="img5" src="/stpmmp/front/images/images_index/onlineShow4.png" style="height:105px; width:200px;"/></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709211606067709326339124&shi=&xian=" target="_blank">心脑血管疾病发病机制研究…</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" style="color:#666666;" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709211606067709326339124&shi=&xian=" target="_blank">急性脑梗死致残率、死亡率…</a></td>
+                                                </tr>
+                                            </table>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <table style="height:130px; width:210px;">
+                                                <tr>
+                                                    <td align="left"><a href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709201559277302766892939&shi=&xian=" target="_blank"><img class="img5" src="/stpmmp/front/images/images_index/onlineShow5.png" style="height:105px; width:200px;"/></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709201559277302766892939&shi=&xian=" target="_blank">生物物质分离装置（GS-Key）…</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" style="color:#666666;" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709201559277302766892939&shi=&xian=" target="_blank">振东基赛生物科技有限公司…</a></td>
+                                                </tr>
+                                            </table>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <table style="height:130px; width:210px;">
+                                                <tr>
+                                                    <td align="left"><a href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709221612462603264151559&shi=&xian=" target="_blank"><img class="img5" src="/stpmmp/front/images/images_index/onlineShow6.png" style="height:105px; width:200px;"/></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709221612462603264151559&shi=&xian=" target="_blank">山西省突发事件地理信息应…</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"><a class="mcFont6" style="color:#666666;" href="http://218.26.228.128:11188/328/web/show_zdh.html?ids=1709221612462603264151559&shi=&xian=" target="_blank">山西省突发事件地理信息应…</a></td>
+                                                </tr>
+                                            </table>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <table width="100%" style="height:1px;">
+            <tr>
+                <td align="center">&nbsp;</td>
+            </tr>
+        </table>
+        <!-- 系统使用说明 相关下载 业务咨询 技术支持 -->
+        <div style="width:1200px;margin: 0 auto;padding:0px 20px 5px 20px;">
+            <div style="float:left;width:292px; height:205px;overflow:hidden; background-color:#ffffff;padding-left:0px;border:1px solid #D5E4F4;">
+                <table width="100%">
+                    <tr>
+                        <td width="100%" height="40" style="border-right:0px solid #ffffff; padding-right:5px;" background="/stpmmp/front/images/images_index/s1.png"><a href="/stpmmp/news?id=xgys&name=系统使用说明" class="mcFont2" style="color:#ffffff; float:right;">>></a></td>
+                    </tr>
+                </table>
+                <div class="important_news" style="margin-top:0px;">
+                    <ul class="newslist">
+                        <li><a href="/stpmmp/news/news/565-系统使用说明" title="山西科技报告服务系统之呈交子系统使用手册" class="title">山西科技报告服务系统之呈交子系统使用手册</a>
+                        </li>
+                        <li><a href="/stpmmp/news/news/396-系统使用说明" title="山西科技成果转化和知识产权交易服务平台科技成果登记和子平台建设流程图" class="title">山西科技成果转化和知识产权交易服务平台科技成果登记和子平台建设流程图</a>
+                        </li>
+                        <li><a href="/stpmmp/news/news/203-系统使用说明" title="填写申报书可能遇到的问题及解决方案" class="title">填写申报书可能遇到的问题及解决方案</a>
+                        </li>
+                        <li><a href="/stpmmp/news/news/142-系统使用说明" title="山西省科技综合管理服务平台使用手册（用户注册）" class="title">山西省科技综合管理服务平台使用手册（用户注册）</a>
+                        </li>
+                    </ul>                              
+
+                </div>
+
+            </div>
+            <div style="float:left;width:292px; height:205px;overflow:hidden; background-color:#ffffff;padding-left:0px;border:1px solid #D5E4F4;">
+                <table width="100%">
+                    <tr>
+                        <td width="100%" height="40" style="border-right:0px solid #ffffff; padding-right:5px;" background="/stpmmp/front/images/images_index/s2.png"><a href="/stpmmp/news?id=sbsyb&name=相关下载" class="mcFont2" style="color:#ffffff; float:right;">>></a></td>
+                    </tr>
+                </table>
+                <div class="important_news" style="margin-top:0px;">                          
+                    <ul class="newslist">
+                        <li><a href="/stpmmp/news/news/305-相关下载" title="视频格式转换工具下载" class="title">视频格式转换工具下载</a>
+                        </li>
+                        <li><a href="/stpmmp/news/news/271-相关下载" title="科技成果转化和知识产权交易现有中介机构调查表" class="title">科技成果转化和知识产权交易现有中介机构调查表</a>
+                        </li>
+                        <li><a href="/stpmmp/news/news/273-相关下载" title="山西科技成果转化和知识产权交易管理平台-地市工作站登记表" class="title">山西科技成果转化和知识产权交易管理平台-地市工作站登记表</a>
+                        </li>
+                        <li><a href="/stpmmp/news/news/225-相关下载" title="2017年度山西省重点研发计划（重点）项目申报书（样表）" class="title">2017年度山西省重点研发计划（重点）项目申报书（样表）</a>
+                        </li>
+                    </ul>                              
+                </div>
+            </div>
+            <div style="float:left;width:292px; height:205px;overflow:hidden; background-color:#ffffff;padding-left:0px;border:1px solid #D5E4F4;">
+                <table width="100%">
+                    <tr>
+                        <td width="100%" height="40" style="border-right:0px solid #ffffff; padding-right:5px;" background="/stpmmp/front/images/images_index/s3.png"><a href="/stpmmp/news/news/160-业务咨询" class="mcFont2" style="color:#ffffff; float:right;">>></a></td>
+                    </tr>
+                </table>
+                <div class="important_news" style="margin-top:0px;">
+                    <ul class="newslist">	
+                        <li><span class="title">政策法规与监督处&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0351-4067991</span></li>
+                        <li><span class="title">资源配置与管理处&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0351-4046064</span></li>
+                        <li><span class="title">重大专项办公室&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0351-2029629</span></li>
+                        <li><span class="title">基础研究处&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0351-4049920</span></li>
+
+                        </li>	
+                    </ul>
+                </div>
+            </div>
+            <div style="float:left;width:274px; height:205px;overflow:hidden; background-color:#ffffff;padding-left:0px;border:1px solid #D5E4F4;">
+                <table width="100%">
+                    <tr>
+                        <td width="100%" style="border-right:0px solid #ffffff;"><img src="/stpmmp/front/images/images_index/s4.png"/></td>
+                    </tr>
+                </table>
+                <div class="important_news" style="margin-top:0px; padding-left:50px; vertical-align:top;">
+                    <li class="li_style" style="display:block;"><span class="mcFont2">0351-7228612</span></li>
+                    <!-- <li class="li_style" style="display:block;"><span class="mcFont2">0351-7223964</span></li> -->
+                    <!-- <li class="li_style" style="display:block;"><span class="mcFont2">18635191867</span></li> -->
+
+                    <li class="li_style" style="display:block;"><span class="mcFont2">13099052356（申报期）</span></li>
+                    <li class="li_style" style="display:block;"><span class="mcFont2">13099052365（申报期）</span></li>
+                    </li>	
+                </div>
+
+            </div>
+        </div>
+        <table width="100%" height="1">
+            <tr>
+                <td align="center">&nbsp;</td>
+            </tr>
+        </table>
+
+        <!-- 友情链接 -->
+        <div style="width:1200px;margin: 0 auto;">
+            <div class="plate_structure_style2" style=" height:80px;width:1200px;">
+                <div id="butong_net_left" style="overflow:hidden;">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td id="butong_net_left1" valign="top" align="center">
+                                <table cellpadding="2" cellspacing="0" border="0">
+                                    <tr align="center">
+                                        <td><img src="/stpmmp/front/images/images_index/link1.png" width="175"></td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td><img src="/stpmmp/front/images/images_index/link2.png" width="175"></td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td><img src="/stpmmp/front/images/images_index/link3.png" width="175"></td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td><img src="/stpmmp/front/images/images_index/link4.png" width="175"></td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td><img src="/stpmmp/front/images/images_index/link5.png" width="175"></td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td><img src="/stpmmp/front/images/images_index/link6.png" width="175"></td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td id="butong_net_left2" valign="top"></td>
+                        </tr>
+                    </table>
+                </div>
+                <script>
+                    var speed = 30//速度数值越大速度越慢
+                    butong_net_left2.innerHTML = butong_net_left1.innerHTML
+                    function Marquee3() {
+                        if (butong_net_left2.offsetWidth - butong_net_left.scrollLeft <= 0)
+                            butong_net_left.scrollLeft -= butong_net_left1.offsetWidth
+                        else {
+                            butong_net_left.scrollLeft++
+                        }
+                    }
+                    var MyMar3 = setInterval(Marquee3, speed)
+                    butong_net_left.onmouseover = function ()
+                    {
+                        clearInterval(MyMar3)
+                    }
+                    butong_net_left.onmouseout = function ()
+                    {
+                        MyMar3 = setInterval(Marquee3, speed)
+                    }
+                </script>
+
+            </div>
+        </div>
+
+
+<div style="width:1200px;margin: 0 auto;">
+    <table width="100%" height="55" bgcolor="#0E5FB9" align="center" id="gywm">
+        <tr>
+            <td align="center">
+                <a class="mcFont7" href="javascript:void(0)" onclick="subgo(1)" >
+                    关于我们</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="mcFont7" href="javascript:void(0)" onclick="subgo(2)">联系我们</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="mcFont7"  href="javascript:void(0)" onclick="subgo(3)">使用帮助</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="mcFont7" href="javascript:void(0)" onclick="subgo(4)">网站地图</a></font>
+            </td>
+        </tr>
+    </table>
+    <table width="100%" height="100" bgcolor="#DDECFC">
+        <tr>
+            <td align="center">
+        <li class="li_style"><font class="mcFont1" style="color:#333333;">主办单位：山西省科学技术厅</font></li>
+        <li class="li_style"><font class="mcFont1" style="color:#333333;">技术支持：山西省信息产业技术研究院有限公司</font></li>
+        <li class="li_style"><font class="mcFont1" style="color:#333333;" href="#">地址：山西省太原市迎泽大街336号</font></li>
+        <li class="li_style"><font class="mcFont1" style="color:#333333;" href="#">ICP备案序号：晋ICP备05005358号-2 </font></li>
+        <li class="li_style">
+            <a class="mcFont1" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;color:#333333;"
+            target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=14010602060443">
+                <img src="/stpmmp/front/images/sx12396.png" />晋公网安备 14010602060443号</a><br />
+                
+                
+        
+        </li>
+        
+        
+        <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279939350'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279939350%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+        <!-- 代码部分begin -->
+        <div id="rightArrow"></div>
+        <div id="floatDivBoxs">
+            <div class="floatShadow">
+                <div class="floatDqq">
+                    <div class="floatDqq_left">
+                        <img src="/stpmmp/front/images/images_index/qq.png" align="absmiddle">
+                    </div>
+                    <div class="floatDqq_right">
+                        <ul>
+                            <li><a target="_blank" href="tencent://message/?uin=3181238388&Site=sc.chinaz.com&Menu=yes">3181238388</a></li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="floatDqq">
+                    <div class="floatDqq_left">
+                        <img src="/stpmmp/front/images/images_index/phone.png" align="absmiddle">
+                    </div>
+                    <div class="floatDqq_right">
+                        <ul>
+                            <li>03517228612</li>
+                            <!-- <li>03517223964</li> -->
+   
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>      
+                <div class="floatImg"><img src="/stpmmp/front/images/images_index/erweima.jpg" width="98%"></div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- 飘窗-->
+        <div id="bay" onClick="window.open('#')">
+            <img  src="/stpmmp/kduf/20210602/1622621985227_9999.png" alt="" />
+        </div>
+
+        <script type="text/javascript">
+            //测试插件
+            $('#bay').autoMove({angle: -Math.PI / 4, speed: 200});
+        </script>
+
+
+
+        <script>
+            $(function () {
+                var flag = 0;
+                $('#rightArrow').on("click", function () {
+                    if (flag == 1) {
+                        $("#floatDivBoxs").animate({right: '-195px'}, 300);
+                        $(this).animate({right: '-5px'}, 300);
+                        $(this).css('background-position', '-65px 0');
+                        flag = 0;
+                    } else {
+                        $("#floatDivBoxs").animate({right: '0'}, 300);
+                        $(this).animate({right: '190px'}, 300);
+                        $(this).css('background-position', '0px 0');
+                        flag = 1;
+                    }
+                });
+            });
+
+            function cks() {
+                $('#mpanel1').slideVerify({
+                    type: 1, //类型
+                    vOffset: 5, //误差量，根据需求自行调整
+                    barSize: {
+                        width: '80%',
+                        height: '40px'
+                    },
+                    ready: function () {
+                    },
+                    success: function () {
+                        $('#yzmjy').val("yztg");
+
+                    },
+                    error: function () {
+                        alert('验证失败！');
+                    }
+
+                });
+
+            }
+            cks();
+
+        </script>
+    </body>
+</html>
